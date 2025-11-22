@@ -1,6 +1,6 @@
 # 🌱 PURE - Planet Unity for Resource Environment
 
-![EcoSphere Banner](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/1.jpg)
+![EcoSphere Banner](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/0.png)
 
 EcoSphere adalah platform digital inovatif yang menghubungkan masyarakat dengan aksi nyata pelestarian lingkungan. Website ini dirancang untuk mengedukasi, menginspirasi, dan memfasilitasi partisipasi aktif dalam menjaga kelestarian bumi melalui fitur-fitur interaktif dan engaging.
 
@@ -128,26 +128,26 @@ Website dioptimalkan untuk semua perangkat:
 
 ## 📸 Screenshots
 
-### Hero Section
-![Hero Section](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/1.jpg)
+### Profile
+![Hero Section](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/1.png)
 
 ### Education Section
-![Education](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/2.jpg)
+![Education](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/2.png)
 
 ### Action Map
-![Action Map](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/3.jpg)
+![Action Map](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/3.png)
 
 ### Emision Calculations
-![Emision Calculation](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/4.jpg)
+![Emision Calculation](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/4.png)
 
 ### Eco-Wariors Leaderboard
-![Eco-Wariors Leaderboard](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/5.jpg)
+![Eco-Wariors Leaderboard](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/5.png)
 
 ### Comunity
-![Comunity](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/6.jpg)
+![Comunity](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/6.png)
 
 ### Waste Bank & Point Exchange
-![Comunity](https://github.com/Rio3zN9G/EcoSphree/blob/main/images/7.jpg)
+![Comunity](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/7.png)
 
 ## 🎯 Target Pengguna
 
@@ -164,4 +164,5 @@ Kami sangat terbuka untuk berkolaborasi dengan lembaga terkait atau intansi/akti
 
 
 *PURE - Mulai dari Diri, Selamatkan Bumi*
+
 
