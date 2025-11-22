@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PURE - By Tim Casper A</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="ambiance"></div>
+        
+        <div class="loader-content">
+            <div class="icon-wrapper">
+                <svg class="eco-icon" id="eco-icon" viewBox="0 0 100 100">
+                    <path class="path-stem" d="M50 90 Q 50 60 50 40" />
+                    <path class="path-leaf-l" d="M50 60 C 30 55 20 40 30 25 C 40 35 50 40 50 40" />
+                    <path class="path-leaf-r" d="M50 50 C 70 45 80 30 70 15 C 60 25 50 30 50 40" />
+                </svg>
+            </div>
+
+            <div class="text-container" id="text-container">
+                <h1 class="main-title">PU<span>RE</span></h1>
+            </div>
+
+            <div class="loading-meta" id="loading-meta">
+                <div class="progress-track">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="status-text">Waitt bang... <span id="percent">0%</span></div>
+            </div>
+        </div>
+
+        <div class="block-slash-transition" id="block-slash-transition">
+
+        </div>
+    </div>
+
+
+    <div id="main-content" style="display: none;">
+
+        <header>
+            <a href="#home" class="logo">
+                <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                <span>PURE - Planet Unity for Resource Environment</span>
+            </a>
+            
+            <div class="header-actions">
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <div class="notification-count">3</div>
+                </div>
+                <div class="user-profile" id="user-profile">
+                    <div class="user-avatar">
+                        <img src="assets/media/profile.png" alt="User Avatar">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Ario Zulkaisi</div>
+                        <div class="user-level">PURE Warrior</div>
+                    </div>
+                    
+
+                    <div class="profile-popup" id="profile-popup">
+                        <div class="profile-popup-header">
+                            <div class="profile-popup-avatar">
+                                <img src="assets/media/profile.png" alt="User Avatar">
+                            </div>
+                            <div class="profile-popup-info">
+                                <div class="profile-popup-name">Ario Zulkaisi Nubli</div>
+                                <div class="profile-popup-title">Developer</div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+
+        <nav class="bottom-nav">
+            <a href="#home" class="nav-item active">
+                <div class="nav-indicator"></div>
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="#education" class="nav-item">
+                <div class="nav-indicator"></div>
+                <i class="fas fa-book-open"></i>
+                <span>Edukasi</span>
+            </a>
+            <a href="#action" class="nav-item">
+                <div class="nav-indicator"></div>
+                <i class="fas fa-hands-helping"></i>
+                <span>Aksi</span>
+            </a>
+            <a href="#community" class="nav-item">
+                <div class="nav-indicator"></div>
+                <i class="fas fa-users"></i>
+                <span>Komunitas</span>
+            </a>
+            <a href="#waste-bank" class="nav-item">
+                <div class="nav-indicator"></div>
+                <i class="fas fa-recycle"></i>
+                <span>Bank Sampah</span>
+            </a>
+        </nav>
+        
+
+        <section id="home" class="hero">
+            <video autoplay muted loop class="video-background">
+                <source src="assets/media/bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+            
+            <div class="floating-elements">
+                <div class="floating-element"><i class="fas fa-leaf"></i></div>
+                <div class="floating-element"><i class="fas fa-recycle"></i></div>
+                <div class="floating-element"><i class="fas fa-tree"></i></div>
+                <div class="floating-element"><i class="fas fa-water"></i></div>
+            </div>
+           
+            <div class="hero-content">
+                <h1 class="hero-title"><br><br>Mulai dari Diri, Selamatkan Bumi</h1>
+                <div class="typing-text" id="typing-text"></div>
+                <div class="cta-buttons">
+                    <a href="#education" class="btn btn-primary"><i class="fas fa-book-open"></i> Mulai Belajar</a>
+                    <a href="#action" class="btn btn-secondary"><i class="fas fa-hands-helping"></i> Ikut Aksi</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="education" class="education">
+            <div class="section-shape section-shape-top"></div>
+            <h2 class="section-title">Edukasi Lingkungan</h2>
+            
+            <div class="gamification-points">
+                <i class="fas fa-trophy"></i>
+                <span>Poin Anda: <strong id="user-points">1250</strong></span>
+            </div>
+            
+            <div class="education-grid" id="education-grid">
+
+            </div>
+            <div class="section-shape section-shape-bottom"></div>
+        </section>
+
+
+        <section id="action" class="action">
+            <h2 class="section-title">Aksi Lingkungan</h2>
+            <div class="action-container">
+                <div id="map" data-aos="fade-up">
+                    <div class="map-container"></div>
+                </div>
+                
+                <div class="calculator" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Kalkulator Jejak Karbon</h3>
+                    <div class="form-group">
+                        <label for="transport"><i class="fas fa-car"></i> Transportasi (km/minggu)</label>
+                        <input type="number" id="transport" min="0" placeholder="Masukkan jarak tempuh">
+                    </div>
+                    <div class="form-group">
+                        <label for="energy"><i class="fas fa-bolt"></i> Energi Listrik (kWh/bulan)</label>
+                        <input type="number" id="energy" min="0" placeholder="Masukkan konsumsi listrik">
+                    </div>
+                    <div class="form-group">
+                        <label for="waste"><i class="fas fa-trash"></i> Sampah (kg/minggu)</label>
+                        <input type="number" id="waste" min="0" placeholder="Masukkan jumlah sampah">
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar" id="carbon-progress"></div>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="calculate-btn"><i class="fas fa-calculator"></i> Hitung Jejak Karbon</button>
+                    
+                    <div class="result" id="carbon-result"></div>
+                </div>
+                
+                <div class="leaderboard" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Peringkat PURE-Warrior</h3>
+                    <div class="leaderboard-item">
+                        <span class="leaderboard-rank">1</span>
+                        <span class="leaderboard-name">Andi Pratama</span>
+                        <span class="leaderboard-points">2450 pts</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="leaderboard-rank">2</span>
+                        <span class="leaderboard-name">Sari Indah</span>
+                        <span class="leaderboard-points">1980 pts</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="leaderboard-rank">3</span>
+                        <span class="leaderboard-name">Budi Santoso</span>
+                        <span class="leaderboard-points">1750 pts</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="leaderboard-rank">4</span>
+                        <span class="leaderboard-name">Rina Wijaya</span>
+                        <span class="leaderboard-points">1620 pts</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="leaderboard-rank">5</span>
+                        <span class="leaderboard-name">Dewi Lestari</span>
+                        <span class="leaderboard-points">1480 pts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="community" class="community">
+            <div class="section-shape section-shape-top"></div>
+            <h2 class="section-title">Komunitas PURE</h2>
+            
+            <div class="community-container">
+                <div class="community-header">
+                    <p class="community-description">
+                        Bergabunglah dengan komunitas PURE untuk berdiskusi, berbagi pengalaman, dan berkolaborasi dalam aksi lingkungan. 
+                        Mari bersama-sama menciptakan perubahan positif untuk bumi kita.
+                    </p>
+                </div>
+                
+                <div class="whatsapp-cta" data-aos="fade-up">
+                    <h3><i class="fab fa-whatsapp"></i> Bergabung dengan Grup WhatsApp</h3>
+                    <p>Dapatkan informasi terbaru tentang aksi lingkungan, diskusi menarik, dan kesempatan berkolaborasi dengan sesama pure-warrior.</p>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20bergabung%20dengan%20komunitas%20Pure" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Gabung Grup WhatsApp
+                    </a>
+                </div>
+                
+                <div class="forum-container">
+                    <div class="forum" data-aos="fade-up">
+                        <h3 style="color: var(--primary-green); margin-bottom: 1.5rem; text-align: center;">Forum Diskusi</h3>
+                        <div class="chat-container" id="chat-container">
+
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chat-input" placeholder="Ketik pesan Anda...">
+                            <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="community-sidebar" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Pengembang</h3>
+                        <div class="online-users" id="online-users">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-shape section-shape-bottom"></div>
+        </section>
+
+
+        <section id="waste-bank" class="waste-bank">
+            <h2 class="section-title"><br><br>Bank Sampah</h2>
+            <div class="stats-container" data-aos="fade-up">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-waste">0</div>
+                    <div class="stat-label">Total Sampah Terkelola (kg)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="recycled">0</div>
+                    <div class="stat-label">Telah Didaur Ulang (kg)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="users">0</div>
+                    <div class="stat-label">Pengguna Aktif</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="points">0</div>
+                    <div class="stat-label">Poin Ditukarkan</div>
+                </div>
+            </div>
+            
+            <div class="waste-management" data-aos="fade-up" data-aos-delay="100">
+                <div class="waste-input">
+                    <h3>Tambah Sampah</h3>
+                    <div class="form-group">
+                        <label for="waste-type">Jenis Sampah</label>
+                        <select id="waste-type" class="form-control">
+                            <option value="plastik">Plastik</option>
+                            <option value="kertas">Kertas</option>
+                            <option value="organik">Organik</option>
+                            <option value="logam">Logam</option>
+                            <option value="kaca">Kaca</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="waste-amount">Jumlah (kg)</label>
+                        <input type="number" id="waste-amount" min="0" step="0.1" placeholder="Masukkan jumlah sampah">
+                    </div>
+                    <button class="btn btn-primary" id="add-waste-btn"><i class="fas fa-plus"></i> Tambah Sampah</button>
+                </div>
+                
+                <div class="waste-history">
+                    <h3>Riwayat Sampah</h3>
+                    <div id="waste-history-list">
+ 
+                    </div>
+                </div>
+            </div>
+            
+            <div class="categories" data-aos="fade-up" data-aos-delay="200">
+                <div class="category active">Plastik</div>
+                <div class="category">Kertas</div>
+                <div class="category">Organik</div>
+                <div class="category">Logam</div>
+                <div class="category">Kaca</div>
+                <div class="category">Elektronik</div>
+            </div>
+            
+            <div class="waste-items" data-aos="fade-up" data-aos-delay="300">
+
+            </div>
+        </section>
+
+
+        <footer>
+            <div class="footer-bg"></div>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                    <span>PURE</span>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2025 TIM Casper A SMK Pertiwi Kuningan.
+                </div>
+            </div>
+        </footer>
+
+
+        <div class="education-modal" id="education-modal">
+            <div class="education-modal-content">
+                <div class="modal-header">
+                    <button class="modal-close" id="modal-close">&times;</button>
+                    <div class="modal-title-container">
+                        <div class="modal-icon" id="modal-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="modal-title-content">
+                            <h2 id="modal-title">Daur Ulang Sampah Plastik</h2>
+                            <p class="modal-description" id="modal-description">Pelajari cara mendaur ulang sampah plastik dengan benar untuk mengurangi polusi lingkungan dan menciptakan ekonomi sirkular.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="modal-image-section">
+                        <img src="" alt="Education Image" class="modal-image" id="modal-image">
+                    </div>
+                    
+                    <div class="modal-details">
+                        <div class="points-badge">
+                            <i class="fas fa-trophy"></i>
+                            <span id="modal-points">+50 Poin</span>
+                        </div>
+                        
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h4><i class="fas fa-info-circle"></i> Apa Itu?</h4>
+                                <p id="modal-what">Daur ulang plastik adalah proses mengubah limbah plastik menjadi produk baru yang bermanfaat, mengurangi kebutuhan untuk bahan baku baru dan mengurangi polusi.</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Dampak</h4>
+                                <ul id="modal-impact">
+                                    <li>Mengurangi polusi plastik di laut dan daratan</li>
+                                    <li>Menghemat energi hingga 80% dibanding produksi baru</li>
+                                    <li>Mengurangi emisi gas rumah kaca</li>
+                                    <li>Menciptakan lapangan kerja di sektor daur ulang</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4><i class="fas fa-check-circle"></i> Manfaat</h4>
+                                <ul id="modal-benefits">
+                                    <li>Mengurangi sampah di TPA</li>
+                                    <li>Menghemat sumber daya alam</li>
+                                    <li>Mengurangi ketergantungan pada minyak bumi</li>
+                                    <li>Menciptakan ekonomi sirkular</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4><i class="fas fa-lightbulb"></i> Cara Memulai</h4>
+                                <ul id="modal-howto">
+                                    <li>Pisahkan sampah plastik di rumah</li>
+                                    <li>Cuci dan keringkan plastik sebelum didaur ulang</li>
+                                    <li>Gunakan fasilitas bank sampah terdekat</li>
+                                    <li>Dukung produk dari bahan daur ulang</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <div class="modal-actions">
+                        <button class="btn btn-outline" id="save-education">
+                            <i class="fas fa-bookmark"></i> Simpan
+                        </button>
+                        <button class="btn btn-primary" id="start-learning">
+                            <i class="fas fa-play"></i> Mulai Belajar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
