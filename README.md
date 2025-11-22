@@ -6,7 +6,7 @@ EcoSphere adalah platform digital inovatif yang menghubungkan masyarakat dengan 
 
 ## 🏆 Tim Pengembang
 
-**Tim EcoSphere** - SMK Pertiwi Kuningan
+**Tim CASPER A** - SMK Pertiwi Kuningan
 
 | Nama | Kelas |
 |------|-------|
@@ -164,5 +164,6 @@ Kami sangat terbuka untuk berkolaborasi dengan lembaga terkait atau intansi/akti
 
 
 *PURE - Mulai dari Diri, Selamatkan Bumi*
+
 
 
