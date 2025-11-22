@@ -390,7 +390,7 @@
            
             const typingText = document.getElementById('typing-text');
             const texts = [
-                "Bergabunglah dengan komunitas EcoSphere untuk menciptakan perubahan nyata dalam pelestarian lingkungan.",
+                "Mulai dari kita, indungi Bumi.",
                 "Bersama kita bisa membuat perbedaan untuk masa depan bumi yang lebih hijau dan berkelanjutan.",
                 "Setiap aksi kecil berarti. Mulai dari diri sendiri, selamatkan bumi untuk generasi mendatang."
             ];
