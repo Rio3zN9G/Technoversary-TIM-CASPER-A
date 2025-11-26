@@ -1170,4 +1170,173 @@ function initializeMainWebsite() {
     setTimeout(() => {
         notyf.success('Selamat datang di EcoSphere! Mari bersama-sama selamatkan bumi.');
     }, 1000);
+
+    // Initialize Particle Globe
+    initParticleGlobe();
+}
+
+function initParticleGlobe() {
+    const canvas = document.getElementById('particle-globe');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const particleCount = 800;
+    let currentShape = 'globe';
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Resize handling
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Mouse tracking
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - width / 2) * 0.0005;
+        mouseY = (e.clientY - height / 2) * 0.0005;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = 0;
+            this.y = 0;
+            this.z = 0;
+            this.tx = 0;
+            this.ty = 0;
+            this.tz = 0;
+            this.vx = 0;
+            this.vy = 0;
+            this.vz = 0;
+            this.color = '#00C853';
+            this.size = 2;
+            this.setGlobe();
+
+            // Start at random positions
+            this.x = (Math.random() - 0.5) * width;
+            this.y = (Math.random() - 0.5) * height;
+            this.z = (Math.random() - 0.5) * 500;
+        }
+
+        setGlobe() {
+            const phi = Math.acos(-1 + (2 * Math.random()));
+            const theta = Math.sqrt(particleCount * Math.PI) * phi;
+            const r = 250;
+
+            this.tx = r * Math.cos(theta) * Math.sin(phi);
+            this.ty = r * Math.sin(theta) * Math.sin(phi);
+            this.tz = r * Math.cos(phi);
+            this.color = Math.random() > 0.5 ? '#00C853' : '#2979FF';
+        }
+
+        setLeaf() {
+            // Parametric leaf shape
+            const t = Math.random() * 2 * Math.PI;
+            // Heart/Leaf shape parametric
+            const x = 16 * Math.pow(Math.sin(t), 3);
+            const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+
+            this.tx = x * 15;
+            this.ty = y * 15;
+            this.tz = (Math.random() - 0.5) * 100;
+            this.color = '#00E676';
+        }
+
+        setRecycle() {
+            // Triangle shape points
+            const p = Math.random();
+            const size = 250;
+            const h = size * Math.sqrt(3) / 2;
+
+            // Triangle vertices
+            const v1 = { x: 0, y: -h };
+            const v2 = { x: size, y: h };
+            const v3 = { x: -size, y: h };
+
+            let start, end;
+            const edge = Math.floor(Math.random() * 3);
+
+            if (edge === 0) { start = v1; end = v2; }
+            else if (edge === 1) { start = v2; end = v3; }
+            else { start = v3; end = v1; }
+
+            this.tx = start.x + (end.x - start.x) * p;
+            this.ty = start.y + (end.y - start.y) * p;
+
+            // Add some thickness/randomness
+            this.tx += (Math.random() - 0.5) * 40;
+            this.ty += (Math.random() - 0.5) * 40;
+            this.tz = (Math.random() - 0.5) * 100;
+            this.color = '#2979FF';
+        }
+
+        update() {
+            // Easing to target
+            this.x += (this.tx - this.x) * 0.04;
+            this.y += (this.ty - this.y) * 0.04;
+            this.z += (this.tz - this.z) * 0.04;
+
+            // Rotation matrix
+            const cosX = Math.cos(mouseY);
+            const sinX = Math.sin(mouseY);
+            const cosY = Math.cos(mouseX);
+            const sinY = Math.sin(mouseX);
+
+            // Rotate around Y
+            let x1 = this.x * cosY - this.z * sinY;
+            let z1 = this.z * cosY + this.x * sinY;
+
+            // Rotate around X
+            let y1 = this.y * cosX - z1 * sinX;
+            let z2 = z1 * cosX + this.y * sinX;
+
+            // 3D Projection
+            const fov = 800;
+            const scale = fov / (fov + z2);
+            const x2d = x1 * scale + width / 2;
+            const y2d = y1 * scale + height / 2;
+
+            // Draw
+            const alpha = scale > 0 ? (z2 + 400) / 800 : 0; // Fade out back particles
+            if (alpha > 0) {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = Math.min(Math.max(alpha, 0.1), 1);
+                ctx.beginPath();
+                ctx.arc(x2d, y2d, this.size * scale, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    }
+
+    // Init particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    // Animation Loop
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach(p => p.update());
+
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Shape morphing interval
+    setInterval(() => {
+        const shapes = ['globe', 'leaf', 'recycle'];
+        const nextShape = shapes[(shapes.indexOf(currentShape) + 1) % shapes.length];
+        currentShape = nextShape;
+
+        particles.forEach(p => {
+            if (currentShape === 'globe') p.setGlobe();
+            else if (currentShape === 'leaf') p.setLeaf();
+            else if (currentShape === 'recycle') p.setRecycle();
+        });
+    }, 6000); // Change shape every 6 seconds
 }
