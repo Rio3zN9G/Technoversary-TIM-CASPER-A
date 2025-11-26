@@ -890,7 +890,7 @@ function initializeMainWebsite() {
 
 
     educationModal.addEventListener('click', function (e) {
-        if (e.target === educationModal) {
+        if (e.target === educationModal || e.target.classList.contains('education-modal-backdrop')) {
             closeModal();
         }
     });
