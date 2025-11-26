@@ -1,154 +1,158 @@
 <div align="center">
 
-# 🌱 PURE
-### Planet Unity for Resource Environment
+<img src="https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/0.png?raw=true" alt="EcoSphere Banner" width="100%" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
 
-![EcoSphere Banner](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/0.png?raw=true)
+# 🌱 PURE (Planet Unity for Resource Environment)
+### *Platform Edukasi & Aksi Lingkungan Terintegrasi Berbasis Gamifikasi*
 
-**EcoSphere** adalah platform digital inovatif yang menghubungkan masyarakat dengan aksi nyata pelestarian lingkungan.  
-*Mengedukasi, Menginspirasi, dan Memfasilitasi partisipasi aktif untuk bumi yang lebih baik.*
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Project-2ecc71?style=for-the-badge&logo=vercel&logoColor=white)](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active_Development-orange?style=for-the-badge)](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A)
 
-[Demo Website](https://planetunityforresourcesenviroment.vercel.app/) • [Report Bug](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/issues) • [Request Feature](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/issues)
+<p align="center">
+  <b>Mengedukasi</b> • <b>Menginspirasi</b> • <b>Memfasilitasi</b>
+</p>
 
 </div>
 
 ---
 
-## 🏆 Tim Pengembang
+## 🌟 Tentang PURE
 
-**Tim CASPER A** - SMK Pertiwi Kuningan
+**PURE (Planet Unity for Resource Environment)** adalah sebuah ekosistem digital komprehensif yang dirancang untuk menjembatani kesenjangan antara kesadaran lingkungan dan aksi nyata. Kami menggabungkan teknologi web modern, gamifikasi, dan interaksi sosial untuk menciptakan pengalaman pengguna yang imersif dan berdampak.
 
-| Nama | Kelas | Peran |
-| :--- | :---: | :--- |
-| **Ario Zulkaisi Nubli** | XII RPL 2 | Leader |
-| **Syaidina** | XII RPL 1 | Member |
-| **M.Thosim** | XII RPL 2 | Member |
+Di era krisis iklim ini, PURE hadir bukan hanya sebagai website informasi, tetapi sebagai **katalis perubahan perilaku**. Melalui fitur-fitur seperti Bank Sampah Digital, Kalkulator Jejak Karbon, dan Peta Aksi Komunitas, kami memberdayakan setiap individu untuk menjadi pahlawan lingkungan.
 
 ---
 
-## 🛠️ Technology Stack
+## 🏆 Tim Pengembang (CASPER A)
 
-### Frontend Core
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+Proyek ini dikembangkan dengan penuh dedikasi oleh siswa-siswa berbakat dari **SMK Pertiwi Kuningan** untuk kompetisi **Technoversary**.
 
-### Libraries & Frameworks
-![GSAP](https://img.shields.io/badge/GSAP-GreenSock-green?style=flat-square) ![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white) ![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat-square&logo=fontawesome&logoColor=white)
-- **AOS (Animate On Scroll)**
-- **Particles.js**
-- **Anime.js**
-- **Dragula**
-- **Notyf**
-- **Google Fonts** (Poppins & Montserrat)
+| Foto | Nama | Peran & Kelas | Kontak |
+| :---: | :--- | :--- | :---: |
+| <img src="assets/media/profile.png" width="50" style="border-radius:50%"> | **Ario Zulkaisi Nubli**<br>*(XII RPL 2)* | **Lead Developer**<br>• XII RPL 2 | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/ariozn) |
+| <img src="https://ui-avatars.com/api/?name=Syaidina&background=0D8ABC&color=fff" width="50" style="border-radius:50%"> | **Syaidina**<br>*(XII RPL 1)* | **Member**<br>• XII RPL 1 | [![Dribbble](https://img.shields.io/badge/-Dribbble-EA4C89?style=flat-square&logo=dribbble&logoColor=white)](https://dribbble.com) |
+| <img src="https://ui-avatars.com/api/?name=M+Thosim&background=random" width="50" style="border-radius:50%"> | **M. Thosim**<br>*(XII RPL 2)* | **Member**<br>•XII RPL 2 | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com) |
 
 ---
 
-## ✨ Fitur Utama
+## 🚀 Fitur Unggulan (Key Features)
 
-### 1. 🌍 Hero Section Interaktif
-Pengalaman visual yang memukau sejak detik pertama.
-- **Animasi Partikel**: Background dinamis yang hidup.
-- **Typing Effect**: Pesan penyambut yang personal.
-- **3D Earth**: Visualisasi bumi interaktif (SVG/Canvas).
+PURE menghadirkan serangkaian fitur canggih yang terintegrasi dalam satu platform seamless:
 
-### 2. 📚 Edukasi Lingkungan (Gamified)
-Belajar menjadi menyenangkan.
-- **Drag & Drop Learning**: Metode belajar interaktif.
-- **Sistem Poin**: Reward untuk setiap modul yang diselesaikan.
-- **Badges**: Pencapaian visual untuk motivasi.
+### 1. 🎨 **Immersive User Experience**
+- **Hero Section Sinematik**: Latar belakang video dengan overlay interaktif dan animasi 3D floating icons.
+- **Glassmorphism Design**: Antarmuka modern dengan efek kaca premium, memberikan kesan futuristik dan bersih.
+- **Micro-Interactions**: Animasi halus (reveal, stagger, hover effects) yang merespons setiap tindakan pengguna.
 
-### 3. 🗺️ Aksi Lingkungan & Peta
-Pantau dan beraksi di sekitarmu.
-- **Geolocation**: Deteksi lokasi real-time.
-- **Carbon Calculator**: Hitung jejak karbon harianmu.
-- **Event Map**: Temukan event lingkungan terdekat.
+### 2. ♻️ **Bank Sampah Digital (Smart Waste Bank)**
+- **Real-time Tracking**: Pantau jumlah sampah yang disetor dan dampaknya terhadap lingkungan.
+- **Dynamic Filtering**: Filter jenis sampah (Plastik, Kertas, Logam, dll) dengan animasi transisi yang mulus.
+- **Points System**: Konversi sampah menjadi poin yang dapat ditukarkan (gamifikasi ekonomi sirkular).
 
-### 4. 👥 Komunitas & Sosial
-Terhubung dengan sesama Eco-Warriors.
-- **Forum Diskusi**: Ruang berbagi ide.
-- **Interactive Chat**: Komunikasi seamless.
-- **Engagement**: Like, Comment, dan Share.
+### 3. 🌍 **Peta Aksi & Geolocation**
+- **Interactive Map**: Integrasi Leaflet.js untuk menampilkan event lingkungan dan lokasi bank sampah terdekat.
+- **User Tracking**: Deteksi lokasi pengguna secara real-time untuk rekomendasi aksi lokal.
+- **Event Popups**: Detail event dengan tombol "Join" instan.
 
-### 5. ♻️ Bank Sampah Digital
-Manajemen sampah cerdas.
-- **Tracking**: Pantau riwayat penyetoran sampah.
-- **Redemption**: Tukar poin sampah dengan reward.
-- **History**: Log aktivitas lengkap.
+### 4. 📊 **Kalkulator Jejak Karbon**
+- **Personalized Assessment**: Hitung emisi karbon harian berdasarkan transportasi, energi, dan konsumsi.
+- **Visual Data**: Grafik progres bar animasi untuk memvisualisasikan dampak pengguna.
+- **Actionable Insights**: Rekomendasi spesifik berdasarkan hasil perhitungan (Rendah/Sedang/Tinggi).
+
+### 5. 💬 **Komunitas & Smart Chatbot**
+- **AI-Powered Chatbot**: Asisten virtual yang menjawab pertanyaan seputar lingkungan secara instan.
+- **Discussion Forum**: Ruang diskusi real-time antar pengguna dengan antarmuka chat modern.
+- **Leaderboard**: Peringkat pengguna teratas (PURE-Warriors) untuk memacu kompetisi sehat.
 
 ---
 
-## 🚀 Arsitektur & Alur Kerja
+## 🛠️ Teknologi (Tech Stack)
 
-```mermaid
-graph TD
-    A[User Interface HTML/CSS/JS] -->|Interactions| B[Interactive Features GSAP/Anime.js]
-    B -->|Data Handling| C[Data Management Local Storage]
-    C -->|External Data| D[External APIs Maps/Geolocation]
-```
+Kami menggunakan teknologi web terkini untuk memastikan performa, aksesibilitas, dan keindahan visual.
 
-### Implementasi Kunci
-- **Responsive Design**: Mobile-first, Grid & Flexbox, Breakpoints optimization.
-- **Performance**: Lazy loading, GSAP optimization, Minimal DOM manipulation.
-- **UX**: Smooth scrolling, Micro-interactions, Error handling.
-- **SEO**: Semantic HTML, Meta tags, Open Graph, Structured data.
+### **Frontend Core**
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
----
-
-## 📱 Kompatibilitas Device
-
-| Device | Resolusi | Layout |
+### **Libraries & Frameworks**
+| Kategori | Teknologi | Kegunaan |
 | :--- | :--- | :--- |
-| **Desktop** | > 1200px | Full Feature Layout |
-| **Tablet** | 768px - 1199px | Adaptive + Mobile Nav |
-| **Mobile** | < 768px | Mobile-First + Bottom Nav |
+| **Animation** | ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white) | Animasi kompleks, scroll triggers, dan timeline. |
+| **Animation** | ![Anime.js](https://img.shields.io/badge/Anime.js-FA5252?style=flat-square) | Animasi partikel dan efek mikro. |
+| **Maps** | ![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white) | Peta interaktif dan visualisasi geospasial. |
+| **UI Components** | ![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat-square&logo=fontawesome&logoColor=white) | Ikon vektor skalabel dan modern. |
+| **Notifications** | ![Notyf](https://img.shields.io/badge/Notyf-663399?style=flat-square) | Notifikasi toast yang elegan dan non-intrusif. |
+| **Particles** | ![Particles.js](https://img.shields.io/badge/Particles.js-000000?style=flat-square) | Efek latar belakang interaktif. |
 
 ---
 
-## 📸 Galeri Aplikasi
+## 📸 Galeri Tampilan (Screenshots)
 
-<details>
-<summary><strong>Klik untuk melihat Screenshot</strong></summary>
-
-### Profile & Dashboard
-![Hero Section](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/1.png?raw=true)
-
-### Education Module
-![Education](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/2.png?raw=true)
-
-### Action Map
-![Action Map](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/3.png?raw=true)
-
-### Carbon Calculator
-![Emission Calculation](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/4.png?raw=true)
-
-### Leaderboard
-![Leaderboard](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/5.png?raw=true)
-
-### Community Forum
-![Community](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/6.png?raw=true)
-
-### Waste Bank
-![Waste Bank](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/7.png?raw=true)
-
-</details>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Hero Section</b><br>Tampilan awal yang memukau dengan video bg</td>
+      <td align="center"><b>Education Cards</b><br>Modul belajar interaktif dengan glassmorphism</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/1.png?raw=true" width="100%"></td>
+      <td><img src="https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/2.png?raw=true" width="100%"></td>
+    </tr>
+    <tr>
+      <td align="center"><b>Action Map</b><br>Peta interaktif untuk lokasi event</td>
+      <td align="center"><b>Waste Bank</b><br>Manajemen sampah digital</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/3.png?raw=true" width="100%"></td>
+      <td><img src="https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A/blob/main/assets/media/7.png?raw=true" width="100%"></td>
+    </tr>
+  </table>
+</div>
 
 ---
 
-## 🤝 Kolaborasi
+## ⚙️ Instalasi & Penggunaan
 
-Kami terbuka untuk kolaborasi dengan:
-- 🏫 Institusi Pendidikan
-- 🏢 Lembaga Pemerintah
-- 🌱 Komunitas Lingkungan
-- 🌏 NGO Internasional
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di mesin lokal Anda:
 
-> *"PURE - Mulai dari Diri, Selamatkan Bumi"*
+1.  **Clone Repository**
+    ```bash
+    git clone https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A.git
+    ```
+
+2.  **Masuk ke Direktori**
+    ```bash
+    cd Technoversary-TIM-CASPER-A
+    ```
+
+3.  **Jalankan Project**
+    Cukup buka file `index.html` di browser modern pilihan Anda (Chrome, Firefox, Edge, Safari).
+    > Disarankan menggunakan ekstensi **Live Server** di VS Code untuk pengalaman pengembangan terbaik.
+
+---
+
+## 🤝 Kontribusi & Kolaborasi
+
+Kami sangat terbuka untuk kolaborasi! Jika Anda ingin berkontribusi:
+
+1.  Fork repository ini.
+2.  Buat branch fitur baru (`git checkout -b fitur-keren`).
+3.  Commit perubahan Anda (`git commit -m 'Menambahkan fitur keren'`).
+4.  Push ke branch (`git push origin fitur-keren`).
+5.  Buat Pull Request.
 
 ---
 
 <div align="center">
 
-Made by **Tim CASPER A**
+### *"Satu langkah kecil untuk kita, satu lompatan besar untuk bumi."*
+
+Copyright © 2025 **Tim CASPER A - SMK Pertiwi Kuningan**. All Rights Reserved.
+
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/smkpertiwikuningan)
+[![Website](https://img.shields.io/badge/Website-SMK_Pertiwi-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://smkpertiwikuningan.sch.id)
 
 </div>
-
-
