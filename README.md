@@ -20,9 +20,9 @@
 
 | Nama | Kelas | Peran |
 | :--- | :---: | :--- |
-| **Ario Zulkaisi Nubli** | XII RPL 2 | Fullstack Developer |
-| **Syaidina** | XII RPL 1 | UI/UX Designer |
-| **M.Thosim** | XII RPL 2 | Content & Research |
+| **Ario Zulkaisi Nubli** | XII RPL 2 | Leader |
+| **Syaidina** | XII RPL 1 | Member |
+| **M.Thosim** | XII RPL 2 | Member |
 
 ---
 
@@ -147,6 +147,7 @@ Kami terbuka untuk kolaborasi dengan:
 
 <div align="center">
 
-Made with ❤️ by **Tim CASPER A**
+Made by **Tim CASPER A**
 
 </div>
+
