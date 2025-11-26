@@ -152,9 +152,10 @@ Kami sangat terbuka untuk kolaborasi! Jika Anda ingin berkontribusi:
 
 Copyright © 2025 **Tim CASPER A - SMK Pertiwi Kuningan**. All Rights Reserved.
 
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/smkpertiwikuningan)
-[![Website](https://img.shields.io/badge/Website-SMK_Pertiwi-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://smkpertiwikuningan.sch.id)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/smkpertiwikng)
+[![Website](https://img.shields.io/badge/Website-SMK_Pertiwi-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://smkpertiwikng.sch.id/)
 
 </div>
+
 
 
