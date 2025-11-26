@@ -2379,3 +2379,179 @@ footer {
         font-size: 0.55rem;
     }
 }
+
+/* --- MODERN NOTIFICATIONS & ANIMATIONS --- */
+
+/* Custom Notyf Styling */
+/* Custom Notyf Styling */
+.notyf__toast:not(.notyf__toast--disappear) {
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 10px !important;
+    overflow: hidden;
+    animation: slideInNotification 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.notyf__toast {
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 10px !important;
+    overflow: hidden;
+}
+
+.notyf__toast--success {
+    background: linear-gradient(135deg, #00C853, #00E676) !important;
+}
+
+.notyf__toast--error {
+    background: linear-gradient(135deg, #FF5252, #FF1744) !important;
+}
+
+.notyf__toast--info {
+    background: linear-gradient(135deg, #2979FF, #448AFF) !important;
+}
+
+.notyf__message {
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.notyf__icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes slideInNotification {
+    from {
+        transform: translateX(100%) scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Chat Bubble Animation */
+.chat-message {
+    transform-origin: bottom left;
+}
+
+.chat-message.own {
+    transform-origin: bottom right;
+}
+
+.chat-bubble {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.chat-bubble:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Hover Effects Enhanced */
+.card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.card-icon {
+    transition: all 0.5s ease;
+}
+
+.card:hover .card-icon {
+    transform: rotateY(180deg) scale(1.2);
+    background: white;
+    color: var(--primary-green);
+    box-shadow: 0 10px 20px rgba(0, 200, 83, 0.3);
+}
+
+/* Button Glow Effect */
+.btn-primary,
+.btn-primary-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before,
+.btn-primary-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.btn-primary:hover::before,
+.btn-primary-glow:hover::before {
+    left: 100%;
+}
+
+/* Floating Animation for Modal Hero */
+@keyframes floatHero {
+
+    0%,
+    100% {
+        transform: scale(1.05) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.1) translateY(-10px);
+    }
+}
+
+.modal-hero-image {
+    animation: floatHero 20s ease-in-out infinite alternate;
+}
+
+/* Ripple Effect for Buttons */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Scrollbar Styling Enhanced */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary-green), var(--primary-blue));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green-dark);
+}
