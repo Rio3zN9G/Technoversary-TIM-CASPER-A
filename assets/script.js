@@ -378,16 +378,12 @@ function initializeMainWebsite() {
     ];
 
     const wasteItemsData = [
-        { icon: "🥤", name: "Botol Plastik", price: "Rp 2.000/kg", type: "plastik" },
-        { icon: "🛍️", name: "Kantong Plastik", price: "Rp 1.500/kg", type: "plastik" },
-        { icon: "📦", name: "Kardus", price: "Rp 3.000/kg", type: "kertas" },
-        { icon: "📰", name: "Koran", price: "Rp 2.500/kg", type: "kertas" },
-        { icon: "🍶", name: "Botol Kaca", price: "Rp 1.800/kg", type: "kaca" },
-        { icon: "🔩", name: "Kaleng", price: "Rp 2.200/kg", type: "logam" },
-        { icon: "🔌", name: "Kabel Bekas", price: "Rp 5.000/kg", type: "elektronik" },
-        { icon: "📱", name: "HP Rusak", price: "Rp 15.000/unit", type: "elektronik" },
-        { icon: "🍂", name: "Daun Kering", price: "Rp 500/kg", type: "organik" },
-        { icon: "🍏", name: "Sisa Makanan", price: "Rp 300/kg", type: "organik" }
+        { icon: "🥤", name: "Botol Plastik", price: "Rp 2.000/kg" },
+        { icon: "🛍️", name: "Kantong Plastik", price: "Rp 1.500/kg" },
+        { icon: "📦", name: "Kardus", price: "Rp 3.000/kg" },
+        { icon: "📰", name: "Koran", price: "Rp 2.500/kg" },
+        { icon: "🍶", name: "Botol Kaca", price: "Rp 1.800/kg" },
+        { icon: "🔩", name: "Kaleng", price: "Rp 2.200/kg" }
     ];
 
 
@@ -485,39 +481,18 @@ function initializeMainWebsite() {
 
 
     const wasteItemsContainer = document.querySelector('.waste-items');
-
-    function renderWasteItems(filterType = 'all') {
-        wasteItemsContainer.innerHTML = '';
-
-        const filteredItems = filterType === 'all'
-            ? wasteItemsData
-            : wasteItemsData.filter(item => item.type === filterType);
-
-        if (filteredItems.length === 0) {
-            wasteItemsContainer.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--dark-gray);">Belum ada item untuk kategori ini.</div>';
-            return;
-        }
-
-        filteredItems.forEach((item, index) => {
-            const wasteItem = document.createElement('div');
-            wasteItem.className = 'waste-item reveal-block';
-            // Stagger delay for animation
-            wasteItem.style.transitionDelay = `${index * 100}ms`;
-
-            wasteItem.innerHTML = `
-                <div class="waste-icon">${item.icon}</div>
-                <h4>${item.name}</h4>
-                <p>${item.price}</p>
-            `;
-            wasteItemsContainer.appendChild(wasteItem);
-
-            // Observe the new item for animation
-            observer.observe(wasteItem);
-        });
-    }
-
-    // Initial render
-    renderWasteItems('plastik'); // Default to plastik or 'all' based on design preference
+    wasteItemsData.forEach((item, index) => {
+        const wasteItem = document.createElement('div');
+        wasteItem.className = 'waste-item';
+        wasteItem.setAttribute('data-aos', 'fade-up');
+        wasteItem.setAttribute('data-aos-delay', index * 100);
+        wasteItem.innerHTML = `
+                    <div class="waste-icon">${item.icon}</div>
+                    <h4>${item.name}</h4>
+                    <p>${item.price}</p>
+                `;
+        wasteItemsContainer.appendChild(wasteItem);
+    });
 
     // Parallax Effect for Floating Elements
     document.addEventListener('mousemove', (e) => {
@@ -1150,19 +1125,16 @@ function initializeMainWebsite() {
 
     document.querySelectorAll('.category').forEach(category => {
         category.addEventListener('click', function () {
-            // Remove active class from all
             document.querySelectorAll('.category').forEach(cat => {
                 cat.classList.remove('active');
             });
-
-            // Add active class to clicked
             this.classList.add('active');
 
-            // Get category type
-            const type = this.textContent.toLowerCase().trim();
 
-            // Render items
-            renderWasteItems(type);
+            gsap.fromTo('.waste-items .waste-item',
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }
+            );
         });
     });
 
