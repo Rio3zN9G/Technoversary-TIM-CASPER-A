@@ -5,7 +5,7 @@
 # 🌱 PURE (Planet Unity for Resource Environment)
 ### *Platform Edukasi & Aksi Lingkungan Terintegrasi Berbasis Gamifikasi*
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Project-2ecc71?style=for-the-badge&logo=vercel&logoColor=white)](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Project-2ecc71?style=for-the-badge&logo=vercel&logoColor=white)](https://planetunityforresourcesenviroment.vercel.app)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active_Development-orange?style=for-the-badge)](https://github.com/Rio3zN9G/Technoversary-TIM-CASPER-A)
 
@@ -156,3 +156,4 @@ Copyright © 2025 **Tim CASPER A - SMK Pertiwi Kuningan**. All Rights Reserved.
 [![Website](https://img.shields.io/badge/Website-SMK_Pertiwi-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://smkpertiwikuningan.sch.id)
 
 </div>
+
