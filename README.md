@@ -31,9 +31,9 @@ Proyek ini dikembangkan dengan penuh dedikasi oleh siswa-siswa berbakat dari **S
 
 | Foto | Nama | Peran & Kelas | Kontak |
 | :---: | :--- | :--- | :---: |
-| <img src="assets/media/profile.png" width="50" style="border-radius:50%"> | **Ario Zulkaisi Nubli**<br>*(XII RPL 2)* | **Lead Developer**<br>• XII RPL 2 | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/ariozn) |
-| <img src="https://ui-avatars.com/api/?name=Syaidina&background=0D8ABC&color=fff" width="50" style="border-radius:50%"> | **Syaidina**<br>*(XII RPL 1)* | **Member**<br>• XII RPL 1 | [![Dribbble](https://img.shields.io/badge/-Dribbble-EA4C89?style=flat-square&logo=dribbble&logoColor=white)](https://dribbble.com) |
-| <img src="https://ui-avatars.com/api/?name=M+Thosim&background=random" width="50" style="border-radius:50%"> | **M. Thosim**<br>*(XII RPL 2)* | **Member**<br>•XII RPL 2 | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com) |
+| <img src="assets/media/profile.png" width="50" style="border-radius:50%"> | **Ario Zulkaisi Nubli**<br>*(XII RPL 2)* | **Lead Developer**<br>• XII RPL 2 | [![INSTAGRAM](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/itsriod) |
+| <img src="https://ui-avatars.com/api/?name=Syaidina&background=0D8ABC&color=fff" width="50" style="border-radius:50%"> | **Syaidina**<br>*(XII RPL 1)* | **Member**<br>• XII RPL 1 | [![INSTAGRAM](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/gudeldeveloper) |
+| <img src="https://ui-avatars.com/api/?name=M+Thosim&background=random" width="50" style="border-radius:50%"> | **M. Thosim**<br>*(XII RPL 2)* | **Member**<br>•XII RPL 2 | [![INSTAGRAM](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/thoosiin) |
 
 ---
 
@@ -156,4 +156,5 @@ Copyright © 2025 **Tim CASPER A - SMK Pertiwi Kuningan**. All Rights Reserved.
 [![Website](https://img.shields.io/badge/Website-SMK_Pertiwi-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://smkpertiwikuningan.sch.id)
 
 </div>
+
 
