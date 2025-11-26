@@ -1000,12 +1000,27 @@ function initializeMainWebsite() {
     });
 
 
+    // Smart Chat System
+    const chatBotKnowledge = {
+        "halo": ["Halo juga! Semangat menjaga bumi!", "Hai! Ada yang bisa dibantu terkait lingkungan?", "Halo! Senang bertemu sesama Eco-Warrior."],
+        "hai": ["Halo! Mari kita buat bumi lebih hijau.", "Hai! Apa kabar hari ini?", "Halo! Siap beraksi untuk lingkungan?"],
+        "sampah": ["Jangan lupa pilah sampahmu ya! Organik, Anorganik, dan B3.", "Sampah plastik bisa didaur ulang menjadi kerajinan lho.", "Sudah setor sampah ke Bank Sampah hari ini?", "Ingat 3R: Reduce, Reuse, Recycle!"],
+        "plastik": ["Plastik butuh ratusan tahun untuk terurai. Kurangi penggunaannya yuk!", "Bawa botol minum sendiri bisa mengurangi sampah plastik lho.", "Daur ulang botol plastikmu di Bank Sampah PURE."],
+        "poin": ["Kumpulkan poin dengan setor sampah dan selesaikan modul edukasi!", "Poin bisa ditukar dengan reward menarik lho.", "Cek leaderboard untuk lihat peringkat poinmu.", "Setiap 1kg sampah plastik bernilai 50 poin!"],
+        "daur ulang": ["Daur ulang adalah langkah kecil berdampak besar.", "Botol plastik bekas bisa jadi pot tanaman yang cantik.", "Kertas bekas bisa didaur ulang jadi kertas baru lagi.", "Pisahkan sampahmu sebelum didaur ulang ya."],
+        "banjir": ["Banjir sering disebabkan oleh sampah yang menyumbat saluran air.", "Mari jaga kebersihan sungai agar tidak banjir.", "Tanam pohon untuk membantu penyerapan air hujan.", "Jangan buang sampah sembarangan ya!"],
+        "pohon": ["Satu pohon bisa menyuplai oksigen untuk 2 orang seumur hidup.", "Yuk ikut event penanaman pohon minggu depan!", "Pohon menyejukkan udara dan mengurangi polusi.", "Menanam pohon = menanam kehidupan."],
+        "energi": ["Matikan lampu jika tidak digunakan untuk hemat energi.", "Gunakan energi terbarukan seperti panel surya.", "Hemat energi = hemat biaya dan selamatkan bumi."],
+        "kompos": ["Sampah organik bisa dijadikan pupuk kompos lho.", "Kompos sangat baik untuk menyuburkan tanaman.", "Membuat kompos itu mudah, cukup siapkan wadah dan sampah organik."],
+        "default": ["Wah, menarik sekali! Ceritakan lebih lanjut.", "Setuju banget!", "Terima kasih infonya, sangat bermanfaat.", "Semangat terus untuk menjaga lingkungan!", "Keren! Lanjutkan aksi baikmu.", "Mantap! Inspiratif sekali."]
+    };
+
     document.getElementById('send-message').addEventListener('click', function () {
         const chatInput = document.getElementById('chat-input');
         const message = chatInput.value.trim();
 
         if (message) {
-
+            // User Message
             const chatMessage = document.createElement('div');
             chatMessage.className = 'chat-message own';
             chatMessage.innerHTML = `
@@ -1017,42 +1032,67 @@ function initializeMainWebsite() {
                         </div>
                     `;
 
-
-            document.getElementById('chat-container').appendChild(chatMessage);
-
-
+            const chatContainer = document.getElementById('chat-container');
+            chatContainer.appendChild(chatMessage);
             chatInput.value = '';
+            chatContainer.scrollTop = chatContainer.scrollHeight;
 
+            // Analyze Message & Generate Response
+            const lowerMsg = message.toLowerCase();
+            let replyText = "";
+            let matched = false;
 
-            document.getElementById('chat-container').scrollTop = document.getElementById('chat-container').scrollHeight;
+            // Check for keywords
+            for (const [key, answers] of Object.entries(chatBotKnowledge)) {
+                if (key !== "default" && lowerMsg.includes(key)) {
+                    replyText = answers[Math.floor(Math.random() * answers.length)];
+                    matched = true;
+                    break;
+                }
+            }
 
+            // Fallback if no keyword matched
+            if (!matched) {
+                const defaults = chatBotKnowledge["default"];
+                replyText = defaults[Math.floor(Math.random() * defaults.length)];
+            }
+
+            // Simulate Typing Delay
+            const typingDelay = Math.random() * 1000 + 1000; // 1-2 seconds
 
             setTimeout(() => {
-                const replies = [
-                    "Ide yang bagus! Saya setuju dengan pendapat Anda.",
-                    "Terima kasih sudah berbagi pengalaman!",
-                    "Saya akan mencoba tips yang Anda berikan.",
-                    "Wah, menarik sekali! Bisa dibagikan lebih detail?",
-                    "Saya juga punya pengalaman serupa, mari berkolaborasi!"
-                ];
-
-                const randomReply = replies[Math.floor(Math.random() * replies.length)];
                 const randomUser = onlineUsers[Math.floor(Math.random() * onlineUsers.length)];
 
                 const replyMessage = document.createElement('div');
                 replyMessage.className = 'chat-message';
+                replyMessage.style.opacity = '0'; // Start hidden for animation
                 replyMessage.innerHTML = `
                             <div class="chat-avatar">${randomUser.avatar}</div>
                             <div class="chat-bubble">
                                 <div class="chat-user">${randomUser.name}</div>
-                                <div class="chat-text">${randomReply}</div>
-                                <div class="chat-time">Sekarang</div>
+                                <div class="chat-text">${replyText}</div>
+                                <div class="chat-time">Baru saja</div>
                             </div>
                         `;
 
-                document.getElementById('chat-container').appendChild(replyMessage);
-                document.getElementById('chat-container').scrollTop = document.getElementById('chat-container').scrollHeight;
-            }, 2000);
+                chatContainer.appendChild(replyMessage);
+
+                // Animate entry
+                anime({
+                    targets: replyMessage,
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 500,
+                    easing: 'easeOutQuad'
+                });
+
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                // Play subtle pop sound if available (optional)
+                // const popSound = new Audio('assets/media/pop.mp3');
+                // popSound.play().catch(() => {});
+
+            }, typingDelay);
         }
     });
 
