@@ -159,6 +159,115 @@ function initializeMainWebsite() {
         offset: 100
     });
 
+    // Initialize Particles.js
+    if (window.particlesJS) {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00E676"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00E676",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
     const educationData = [
         {
             title: "Daur Ulang Sampah Plastik",
@@ -269,12 +378,16 @@ function initializeMainWebsite() {
     ];
 
     const wasteItemsData = [
-        { icon: "🥤", name: "Botol Plastik", price: "Rp 2.000/kg" },
-        { icon: "🛍️", name: "Kantong Plastik", price: "Rp 1.500/kg" },
-        { icon: "📦", name: "Kardus", price: "Rp 3.000/kg" },
-        { icon: "📰", name: "Koran", price: "Rp 2.500/kg" },
-        { icon: "🍶", name: "Botol Kaca", price: "Rp 1.800/kg" },
-        { icon: "🔩", name: "Kaleng", price: "Rp 2.200/kg" }
+        { icon: "🥤", name: "Botol Plastik", price: "Rp 2.000/kg", type: "plastik" },
+        { icon: "🛍️", name: "Kantong Plastik", price: "Rp 1.500/kg", type: "plastik" },
+        { icon: "📦", name: "Kardus", price: "Rp 3.000/kg", type: "kertas" },
+        { icon: "📰", name: "Koran", price: "Rp 2.500/kg", type: "kertas" },
+        { icon: "🍶", name: "Botol Kaca", price: "Rp 1.800/kg", type: "kaca" },
+        { icon: "🔩", name: "Kaleng", price: "Rp 2.200/kg", type: "logam" },
+        { icon: "🔌", name: "Kabel Bekas", price: "Rp 5.000/kg", type: "elektronik" },
+        { icon: "📱", name: "HP Rusak", price: "Rp 15.000/unit", type: "elektronik" },
+        { icon: "🍂", name: "Daun Kering", price: "Rp 500/kg", type: "organik" },
+        { icon: "🍏", name: "Sisa Makanan", price: "Rp 300/kg", type: "organik" }
     ];
 
 
@@ -319,41 +432,92 @@ function initializeMainWebsite() {
     const educationGrid = document.getElementById('education-grid');
     educationData.forEach((item, index) => {
         const card = document.createElement('div');
-        card.className = 'card';
-        card.setAttribute('data-aos', 'fade-up');
-        if (index > 0) card.setAttribute('data-aos-delay', index * 100);
+        card.className = 'card reveal-block'; // Added reveal-block class
+        // card.setAttribute('data-aos', 'fade-up'); // Removed AOS to use custom animation
 
         card.innerHTML = `
-                    ${item.badge ? `<div class="achievement-badge">${item.badge}</div>` : ''}
-                    <div class="card-header" style="background-image: url('${item.image}');"></div>
-                    <div class="card-icon"><i class="${item.icon}"></i></div>
-                    <div class="card-content">
-                        <h3>${item.title}</h3>
-                        <p>${item.description}</p>
-                        <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                            <span style="color: var(--primary-green); font-weight: 600;">+${item.points} Poin</span>
-                            <button class="btn btn-primary learn-btn" data-index="${index}" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Pelajari</button>
-                        </div>
+            ${item.badge ? `<div class="achievement-badge">${item.badge}</div>` : ''}
+            <div class="card-header" style="background-image: url('${item.image}');"></div>
+            <div class="card-icon"><i class="${item.icon}"></i></div>
+            <div class="card-content">
+                <h3 class="reveal-slash">${item.title}</h3>
+                <p>${item.description}</p>
+                <div class="card-footer">
+                    <div class="card-points">
+                        <i class="fas fa-star"></i>
+                        <span>+${item.points} Poin</span>
                     </div>
-                `;
+                    <button class="learn-btn" data-index="${index}">
+                        Pelajari <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 5px;"></i>
+                    </button>
+                </div>
+            </div>
+        `;
 
         educationGrid.appendChild(card);
     });
 
+    // Custom Animation Observer
+    const observerOptions = {
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+
+                // Trigger children animations
+                const slashes = entry.target.querySelectorAll('.reveal-slash');
+                slashes.forEach(slash => slash.classList.add('active'));
+
+                const dashes = entry.target.querySelectorAll('.reveal-dash');
+                dashes.forEach(dash => dash.classList.add('active'));
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-block').forEach(el => {
+        observer.observe(el);
+    });
+
 
     const wasteItemsContainer = document.querySelector('.waste-items');
-    wasteItemsData.forEach((item, index) => {
-        const wasteItem = document.createElement('div');
-        wasteItem.className = 'waste-item';
-        wasteItem.setAttribute('data-aos', 'fade-up');
-        wasteItem.setAttribute('data-aos-delay', index * 100);
-        wasteItem.innerHTML = `
-                    <div class="waste-icon">${item.icon}</div>
-                    <h4>${item.name}</h4>
-                    <p>${item.price}</p>
-                `;
-        wasteItemsContainer.appendChild(wasteItem);
-    });
+
+    function renderWasteItems(filterType = 'all') {
+        wasteItemsContainer.innerHTML = '';
+
+        const filteredItems = filterType === 'all'
+            ? wasteItemsData
+            : wasteItemsData.filter(item => item.type === filterType);
+
+        if (filteredItems.length === 0) {
+            wasteItemsContainer.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--dark-gray);">Belum ada item untuk kategori ini.</div>';
+            return;
+        }
+
+        filteredItems.forEach((item, index) => {
+            const wasteItem = document.createElement('div');
+            wasteItem.className = 'waste-item reveal-block';
+            // Stagger delay for animation
+            wasteItem.style.transitionDelay = `${index * 100}ms`;
+
+            wasteItem.innerHTML = `
+                <div class="waste-icon">${item.icon}</div>
+                <h4>${item.name}</h4>
+                <p>${item.price}</p>
+            `;
+            wasteItemsContainer.appendChild(wasteItem);
+
+            // Observe the new item for animation
+            observer.observe(wasteItem);
+        });
+    }
+
+    // Initial render
+    renderWasteItems('plastik'); // Default to plastik or 'all' based on design preference
 
     // Parallax Effect for Floating Elements
     document.addEventListener('mousemove', (e) => {
@@ -986,16 +1150,19 @@ function initializeMainWebsite() {
 
     document.querySelectorAll('.category').forEach(category => {
         category.addEventListener('click', function () {
+            // Remove active class from all
             document.querySelectorAll('.category').forEach(cat => {
                 cat.classList.remove('active');
             });
+
+            // Add active class to clicked
             this.classList.add('active');
 
+            // Get category type
+            const type = this.textContent.toLowerCase().trim();
 
-            gsap.fromTo('.waste-items .waste-item',
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }
-            );
+            // Render items
+            renderWasteItems(type);
         });
     });
 
@@ -1170,173 +1337,4 @@ function initializeMainWebsite() {
     setTimeout(() => {
         notyf.success('Selamat datang di EcoSphere! Mari bersama-sama selamatkan bumi.');
     }, 1000);
-
-    // Initialize Particle Globe
-    initParticleGlobe();
-}
-
-function initParticleGlobe() {
-    const canvas = document.getElementById('particle-globe');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    const particleCount = 800;
-    let currentShape = 'globe';
-    let mouseX = 0;
-    let mouseY = 0;
-
-    // Resize handling
-    function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Mouse tracking
-    document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX - width / 2) * 0.0005;
-        mouseY = (e.clientY - height / 2) * 0.0005;
-    });
-
-    class Particle {
-        constructor() {
-            this.x = 0;
-            this.y = 0;
-            this.z = 0;
-            this.tx = 0;
-            this.ty = 0;
-            this.tz = 0;
-            this.vx = 0;
-            this.vy = 0;
-            this.vz = 0;
-            this.color = '#00C853';
-            this.size = 2;
-            this.setGlobe();
-
-            // Start at random positions
-            this.x = (Math.random() - 0.5) * width;
-            this.y = (Math.random() - 0.5) * height;
-            this.z = (Math.random() - 0.5) * 500;
-        }
-
-        setGlobe() {
-            const phi = Math.acos(-1 + (2 * Math.random()));
-            const theta = Math.sqrt(particleCount * Math.PI) * phi;
-            const r = 250;
-
-            this.tx = r * Math.cos(theta) * Math.sin(phi);
-            this.ty = r * Math.sin(theta) * Math.sin(phi);
-            this.tz = r * Math.cos(phi);
-            this.color = Math.random() > 0.5 ? '#00C853' : '#2979FF';
-        }
-
-        setLeaf() {
-            // Parametric leaf shape
-            const t = Math.random() * 2 * Math.PI;
-            // Heart/Leaf shape parametric
-            const x = 16 * Math.pow(Math.sin(t), 3);
-            const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-
-            this.tx = x * 15;
-            this.ty = y * 15;
-            this.tz = (Math.random() - 0.5) * 100;
-            this.color = '#00E676';
-        }
-
-        setRecycle() {
-            // Triangle shape points
-            const p = Math.random();
-            const size = 250;
-            const h = size * Math.sqrt(3) / 2;
-
-            // Triangle vertices
-            const v1 = { x: 0, y: -h };
-            const v2 = { x: size, y: h };
-            const v3 = { x: -size, y: h };
-
-            let start, end;
-            const edge = Math.floor(Math.random() * 3);
-
-            if (edge === 0) { start = v1; end = v2; }
-            else if (edge === 1) { start = v2; end = v3; }
-            else { start = v3; end = v1; }
-
-            this.tx = start.x + (end.x - start.x) * p;
-            this.ty = start.y + (end.y - start.y) * p;
-
-            // Add some thickness/randomness
-            this.tx += (Math.random() - 0.5) * 40;
-            this.ty += (Math.random() - 0.5) * 40;
-            this.tz = (Math.random() - 0.5) * 100;
-            this.color = '#2979FF';
-        }
-
-        update() {
-            // Easing to target
-            this.x += (this.tx - this.x) * 0.04;
-            this.y += (this.ty - this.y) * 0.04;
-            this.z += (this.tz - this.z) * 0.04;
-
-            // Rotation matrix
-            const cosX = Math.cos(mouseY);
-            const sinX = Math.sin(mouseY);
-            const cosY = Math.cos(mouseX);
-            const sinY = Math.sin(mouseX);
-
-            // Rotate around Y
-            let x1 = this.x * cosY - this.z * sinY;
-            let z1 = this.z * cosY + this.x * sinY;
-
-            // Rotate around X
-            let y1 = this.y * cosX - z1 * sinX;
-            let z2 = z1 * cosX + this.y * sinX;
-
-            // 3D Projection
-            const fov = 800;
-            const scale = fov / (fov + z2);
-            const x2d = x1 * scale + width / 2;
-            const y2d = y1 * scale + height / 2;
-
-            // Draw
-            const alpha = scale > 0 ? (z2 + 400) / 800 : 0; // Fade out back particles
-            if (alpha > 0) {
-                ctx.fillStyle = this.color;
-                ctx.globalAlpha = Math.min(Math.max(alpha, 0.1), 1);
-                ctx.beginPath();
-                ctx.arc(x2d, y2d, this.size * scale, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-    }
-
-    // Init particles
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    // Animation Loop
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        particles.forEach(p => p.update());
-
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Shape morphing interval
-    setInterval(() => {
-        const shapes = ['globe', 'leaf', 'recycle'];
-        const nextShape = shapes[(shapes.indexOf(currentShape) + 1) % shapes.length];
-        currentShape = nextShape;
-
-        particles.forEach(p => {
-            if (currentShape === 'globe') p.setGlobe();
-            else if (currentShape === 'leaf') p.setLeaf();
-            else if (currentShape === 'recycle') p.setRecycle();
-        });
-    }, 6000); // Change shape every 6 seconds
 }
