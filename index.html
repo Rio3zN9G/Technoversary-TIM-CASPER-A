@@ -50,15 +50,18 @@
 
 
     <div id="main-content" style="display: none;">
+        <div id="particles-js"
+            style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; pointer-events: none;">
+        </div>
         <div class="batik-overlay"></div>
 
-        <header>
-            <a href="#home" class="logo">
+        <header class="reveal-block">
+            <a href="#home" class="logo reveal-slash">
                 <div class="logo-icon"><i class="fas fa-seedling"></i></div>
                 <span>PURE</span>
             </a>
 
-            <div class="header-actions">
+            <div class="header-actions reveal-block" style="transition-delay: 200ms;">
                 <div class="notification-bell">
                     <i class="fas fa-bell"></i>
                     <div class="notification-count">3</div>
@@ -91,28 +94,28 @@
         </header>
 
 
-        <nav class="bottom-nav">
-            <a href="#home" class="nav-item active">
+        <nav class="bottom-nav reveal-block" style="transition-delay: 500ms;">
+            <a href="#home" class="nav-item active stagger-1">
                 <div class="nav-indicator"></div>
                 <i class="fas fa-home"></i>
                 <span>Beranda</span>
             </a>
-            <a href="#education" class="nav-item">
+            <a href="#education" class="nav-item stagger-2">
                 <div class="nav-indicator"></div>
                 <i class="fas fa-book-open"></i>
                 <span>Edukasi</span>
             </a>
-            <a href="#action" class="nav-item">
+            <a href="#action" class="nav-item stagger-3">
                 <div class="nav-indicator"></div>
                 <i class="fas fa-hands-helping"></i>
                 <span>Aksi</span>
             </a>
-            <a href="#community" class="nav-item">
+            <a href="#community" class="nav-item stagger-4">
                 <div class="nav-indicator"></div>
                 <i class="fas fa-users"></i>
                 <span>Komunitas</span>
             </a>
-            <a href="#waste-bank" class="nav-item">
+            <a href="#waste-bank" class="nav-item stagger-5">
                 <div class="nav-indicator"></div>
                 <i class="fas fa-recycle"></i>
                 <span>Bank Sampah</span>
@@ -127,8 +130,6 @@
             </video>
             <div class="hero-overlay"></div>
 
-            <canvas id="particle-globe"></canvas>
-
             <div class="floating-elements">
                 <div class="floating-element"><i class="fas fa-leaf"></i></div>
                 <div class="floating-element"><i class="fas fa-recycle"></i></div>
@@ -137,9 +138,9 @@
             </div>
 
             <div class="hero-content">
-                <h1 class="hero-title"><br><br>Planet Unity For Resources Enviroment</h1>
+                <h1 class="hero-title reveal-slash"><br><br>Planet Unity For Resources Enviroment</h1>
                 <div class="typing-text" id="typing-text"></div>
-                <div class="cta-buttons">
+                <div class="cta-buttons reveal-block">
                     <a href="#education" class="btn btn-primary"><i class="fas fa-book-open"></i> Mulai Belajar</a>
                     <a href="#action" class="btn btn-secondary"><i class="fas fa-hands-helping"></i> Ikut Aksi</a>
                 </div>
@@ -164,13 +165,13 @@
 
 
         <section id="action" class="action">
-            <h2 class="section-title">Aksi Lingkungan</h2>
+            <h2 class="section-title reveal-dash">Aksi Lingkungan</h2>
             <div class="action-container">
-                <div id="map" data-aos="fade-up">
+                <div id="map" class="reveal-block glass-panel" style="height: 500px; border-radius: 30px;">
                     <div class="map-container"></div>
                 </div>
 
-                <div class="calculator" data-aos="fade-up" data-aos-delay="200">
+                <div class="calculator glass-panel reveal-block" style="transition-delay: 200ms;">
                     <h3>Kalkulator Jejak Karbon</h3>
                     <div class="form-group">
                         <label for="transport"><i class="fas fa-car"></i> Transportasi (km/minggu)</label>
@@ -195,7 +196,7 @@
                     <div class="result" id="carbon-result"></div>
                 </div>
 
-                <div class="leaderboard" data-aos="fade-up" data-aos-delay="400">
+                <div class="leaderboard glass-panel reveal-block" style="transition-delay: 400ms;">
                     <h3>Peringkat PURE-Warrior</h3>
                     <div class="leaderboard-item">
                         <span class="leaderboard-rank">1</span>
@@ -229,10 +230,10 @@
 
         <section id="community" class="community">
             <div class="section-shape section-shape-top"></div>
-            <h2 class="section-title">Komunitas PURE</h2>
+            <h2 class="section-title reveal-dash">Komunitas PURE</h2>
 
             <div class="community-container">
-                <div class="community-header">
+                <div class="community-header reveal-block">
                     <p class="community-description">
                         Bergabunglah dengan komunitas PURE untuk berdiskusi, berbagi pengalaman, dan berkolaborasi dalam
                         aksi lingkungan.
@@ -240,7 +241,7 @@
                     </p>
                 </div>
 
-                <div class="whatsapp-cta" data-aos="fade-up">
+                <div class="whatsapp-cta glass-panel reveal-block">
                     <h3><i class="fab fa-whatsapp"></i> Bergabung dengan Grup WhatsApp</h3>
                     <p>Dapatkan informasi terbaru tentang aksi lingkungan, diskusi menarik, dan kesempatan berkolaborasi
                         dengan sesama pure-warrior.</p>
@@ -251,7 +252,7 @@
                 </div>
 
                 <div class="forum-container">
-                    <div class="forum" data-aos="fade-up">
+                    <div class="forum glass-panel reveal-block">
                         <h3 style="color: var(--primary-green); margin-bottom: 1.5rem; text-align: center;">Forum
                             Diskusi</h3>
                         <div class="chat-container" id="chat-container">
@@ -263,7 +264,7 @@
                         </div>
                     </div>
 
-                    <div class="community-sidebar" data-aos="fade-up" data-aos-delay="200">
+                    <div class="community-sidebar glass-panel reveal-block" style="transition-delay: 200ms;">
                         <h3>Pengembang</h3>
                         <div class="online-users" id="online-users">
 
@@ -276,28 +277,28 @@
 
 
         <section id="waste-bank" class="waste-bank">
-            <h2 class="section-title"><br><br>Bank Sampah</h2>
-            <div class="stats-container" data-aos="fade-up">
-                <div class="stat-card">
+            <h2 class="section-title reveal-dash"><br><br>Bank Sampah</h2>
+            <div class="stats-container">
+                <div class="stat-card reveal-block stagger-1">
                     <div class="stat-value" id="total-waste">0</div>
                     <div class="stat-label">Total Sampah Terkelola (kg)</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal-block stagger-2">
                     <div class="stat-value" id="recycled">0</div>
                     <div class="stat-label">Telah Didaur Ulang (kg)</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal-block stagger-3">
                     <div class="stat-value" id="users">0</div>
                     <div class="stat-label">Pengguna Aktif</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal-block stagger-4">
                     <div class="stat-value" id="points">0</div>
                     <div class="stat-label">Poin Ditukarkan</div>
                 </div>
             </div>
 
-            <div class="waste-management" data-aos="fade-up" data-aos-delay="100">
-                <div class="waste-input">
+            <div class="waste-management">
+                <div class="waste-input glass-panel reveal-block" style="transition-delay: 100ms;">
                     <h3>Tambah Sampah</h3>
                     <div class="form-group">
                         <label for="waste-type">Jenis Sampah</label>
@@ -317,7 +318,7 @@
                         Sampah</button>
                 </div>
 
-                <div class="waste-history">
+                <div class="waste-history glass-panel reveal-block" style="transition-delay: 200ms;">
                     <h3>Riwayat Sampah</h3>
                     <div id="waste-history-list">
 
@@ -325,7 +326,7 @@
                 </div>
             </div>
 
-            <div class="categories" data-aos="fade-up" data-aos-delay="200">
+            <div class="categories reveal-block" style="transition-delay: 200ms;">
                 <div class="category active">Plastik</div>
                 <div class="category">Kertas</div>
                 <div class="category">Organik</div>
@@ -334,7 +335,7 @@
                 <div class="category">Elektronik</div>
             </div>
 
-            <div class="waste-items" data-aos="fade-up" data-aos-delay="300">
+            <div class="waste-items reveal-block" style="transition-delay: 300ms;">
 
             </div>
         </section>
@@ -343,13 +344,60 @@
         <footer>
             <div class="footer-bg"></div>
             <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon"><i class="fas fa-seedling"></i></div>
-                    <span>PURE</span>
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                        <span>PURE</span>
+                    </div>
+                    <p class="footer-desc">
+                        Planet Unity Resources Environment (PURE) adalah platform edukasi dan aksi lingkungan untuk
+                        menciptakan masa depan yang lebih hijau dan berkelanjutan.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
 
+                <div class="footer-links-group">
+                    <h4>Navigasi</h4>
+                    <div class="footer-links">
+                        <a href="#home"><i class="fas fa-chevron-right"></i> Beranda</a>
+                        <a href="#education"><i class="fas fa-chevron-right"></i> Edukasi</a>
+                        <a href="#action"><i class="fas fa-chevron-right"></i> Aksi</a>
+                        <a href="#community"><i class="fas fa-chevron-right"></i> Komunitas</a>
+                    </div>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Layanan</h4>
+                    <div class="footer-links">
+                        <a href="#waste-bank"><i class="fas fa-chevron-right"></i> Bank Sampah</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Konsultasi</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Event</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Donasi</a>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan informasi terbaru seputar lingkungan dan event menarik.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Anda...">
+                        <button type="button"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
                 <div class="copyright">
-                    &copy; 2025 TIM Casper A SMK Pertiwi Kuningan.
+                    &copy; 2025 TIM Casper A SMK Pertiwi Kuningan. All rights reserved.
+                </div>
+                <div class="footer-links" style="flex-direction: row; gap: 1.5rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </footer>
