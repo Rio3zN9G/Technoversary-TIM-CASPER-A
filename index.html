@@ -354,83 +354,70 @@
 
 
         <div class="education-modal" id="education-modal">
+            <div class="education-modal-backdrop"></div>
             <div class="education-modal-content">
-                <div class="modal-header">
-                    <button class="modal-close" id="modal-close">&times;</button>
-                    <div class="modal-title-container">
-                        <div class="modal-icon" id="modal-icon">
-                            <i class="fas fa-recycle"></i>
+                <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+
+                <div class="modal-hero">
+                    <div class="modal-hero-image-container">
+                        <img src="" alt="Education Image" class="modal-hero-image" id="modal-image">
+                        <div class="modal-hero-overlay"></div>
+                    </div>
+                    <div class="modal-hero-content">
+                        <div class="modal-badges">
+                            <span class="badge badge-points" id="modal-points">+50 Poin</span>
+                            <span class="badge badge-category"><span id="modal-icon"><i
+                                        class="fas fa-book-reader"></i></span> &nbsp;Materi</span>
                         </div>
-                        <div class="modal-title-content">
-                            <h2 id="modal-title">Daur Ulang Sampah Plastik</h2>
-                            <p class="modal-description" id="modal-description">Pelajari cara mendaur ulang sampah
-                                plastik dengan benar untuk mengurangi polusi lingkungan dan menciptakan ekonomi
-                                sirkular.</p>
-                        </div>
+                        <h2 class="modal-title" id="modal-title">Judul Materi</h2>
+
                     </div>
                 </div>
 
                 <div class="modal-body">
-                    <div class="modal-image-section">
-                        <img src="" alt="Education Image" class="modal-image" id="modal-image">
+                    <div class="modal-intro">
+                        <p class="modal-description" id="modal-description">Deskripsi singkat...</p>
                     </div>
 
-                    <div class="modal-details">
-                        <div class="points-badge">
-                            <i class="fas fa-trophy"></i>
-                            <span id="modal-points">+50 Poin</span>
+                    <div class="modal-sections">
+                        <div class="modal-section">
+                            <h3 class="modal-section-title"><i class="fas fa-info-circle"></i> Apa Itu?</h3>
+                            <div class="modal-section-content">
+                                <p id="modal-what">Penjelasan...</p>
+                            </div>
                         </div>
 
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <h4><i class="fas fa-info-circle"></i> Apa Itu?</h4>
-                                <p id="modal-what">Daur ulang plastik adalah proses mengubah limbah plastik menjadi
-                                    produk baru yang bermanfaat, mengurangi kebutuhan untuk bahan baku baru dan
-                                    mengurangi polusi.</p>
-                            </div>
-
-                            <div class="info-card">
-                                <h4><i class="fas fa-exclamation-triangle"></i> Dampak</h4>
-                                <ul id="modal-impact">
-                                    <li>Mengurangi polusi plastik di laut dan daratan</li>
-                                    <li>Menghemat energi hingga 80% dibanding produksi baru</li>
-                                    <li>Mengurangi emisi gas rumah kaca</li>
-                                    <li>Menciptakan lapangan kerja di sektor daur ulang</li>
+                        <div class="modal-section-grid">
+                            <div class="modal-section">
+                                <h3 class="modal-section-title"><i class="fas fa-chart-line"></i> Dampak</h3>
+                                <ul class="modal-list" id="modal-impact">
+                                    <!-- JS populates this -->
                                 </ul>
                             </div>
-
-                            <div class="info-card">
-                                <h4><i class="fas fa-check-circle"></i> Manfaat</h4>
-                                <ul id="modal-benefits">
-                                    <li>Mengurangi sampah di TPA</li>
-                                    <li>Menghemat sumber daya alam</li>
-                                    <li>Mengurangi ketergantungan pada minyak bumi</li>
-                                    <li>Menciptakan ekonomi sirkular</li>
+                            <div class="modal-section">
+                                <h3 class="modal-section-title"><i class="fas fa-gift"></i> Manfaat</h3>
+                                <ul class="modal-list" id="modal-benefits">
+                                    <!-- JS populates this -->
                                 </ul>
                             </div>
+                        </div>
 
-                            <div class="info-card">
-                                <h4><i class="fas fa-lightbulb"></i> Cara Memulai</h4>
-                                <ul id="modal-howto">
-                                    <li>Pisahkan sampah plastik di rumah</li>
-                                    <li>Cuci dan keringkan plastik sebelum didaur ulang</li>
-                                    <li>Gunakan fasilitas bank sampah terdekat</li>
-                                    <li>Dukung produk dari bahan daur ulang</li>
-                                </ul>
-                            </div>
+                        <div class="modal-section highlight-section">
+                            <h3 class="modal-section-title"><i class="fas fa-running"></i> Cara Memulai</h3>
+                            <ul class="modal-list step-list" id="modal-howto">
+                                <!-- JS populates this -->
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <div class="modal-actions">
-                        <button class="btn btn-outline" id="save-education">
-                            <i class="fas fa-bookmark"></i> Simpan
-                        </button>
-                        <button class="btn btn-primary" id="start-learning">
-                            <i class="fas fa-play"></i> Mulai Belajar
-                        </button>
-                    </div>
+                    <button class="btn btn-outline-light" id="save-education">
+                        <i class="far fa-bookmark"></i> Simpan
+                    </button>
+                    <button class="btn btn-primary-glow" id="start-learning">
+                        <i class="fas fa-play"></i> Mulai Belajar
+                    </button>
                 </div>
             </div>
         </div>
