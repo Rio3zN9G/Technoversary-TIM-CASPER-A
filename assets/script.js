@@ -159,12 +159,14 @@ function initializeMainWebsite() {
         offset: 100
     });
 
+    const isMobile = window.innerWidth < 768;
+
     // Initialize Particles.js
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": isMobile ? 20 : 80,
                     "density": {
                         "enable": true,
                         "value_area": 800
@@ -533,18 +535,22 @@ function initializeMainWebsite() {
         observer.observe(el);
     });
 
-    // Parallax Effect for Floating Elements
-    document.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
+    // Parallax Effect for Floating Elements (Disabled on Mobile)
+    if (!isMobile) {
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
 
-        gsap.to('.floating-element', {
-            x: (i) => (i + 1) * 30 * (mouseX - 0.5),
-            y: (i) => (i + 1) * 30 * (mouseY - 0.5),
-            duration: 1,
-            ease: 'power2.out'
+                gsap.to('.floating-element', {
+                    x: (i) => (i + 1) * 30 * (mouseX - 0.5),
+                    y: (i) => (i + 1) * 30 * (mouseY - 0.5),
+                    duration: 1,
+                    ease: 'power2.out'
+                });
+            });
         });
-    });
+    }
 
 
     const chatContainer = document.getElementById('chat-container');
@@ -671,7 +677,21 @@ function initializeMainWebsite() {
         });
     }
 
-    window.addEventListener('scroll', setActiveNavItem);
+    // Throttle function for scroll performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function () {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
+    window.addEventListener('scroll', throttle(setActiveNavItem, 100));
 
 
     let isScrolling = false;
