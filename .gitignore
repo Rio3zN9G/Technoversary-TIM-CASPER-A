@@ -1,0 +1,74 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js (if you add build tools later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build and Distribution
+dist/
+build/
+*.min.js
+*.min.css
+
+# Logs
+logs/
+*.log
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.cache
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Media Files (Optional - uncomment if you don't want to track large media)
+# assets/media/*.mp4
+# assets/media/*.mov
+# assets/media/*.avi
+
+# Sensitive Data (Add any files containing API keys or credentials)
+config/secrets.js
+config/api-keys.json
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.orig
+.sass-cache/
