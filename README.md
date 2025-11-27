@@ -41,27 +41,33 @@ Proyek ini dikembangkan dengan penuh dedikasi oleh siswa-siswa berbakat dari **S
 
 PURE menghadirkan serangkaian fitur canggih yang terintegrasi dalam satu platform seamless:
 
-### 1. 🎨 **Immersive User Experience**
+### 1. 🎨 **Immersive & Fresh Design**
+- **Bright & Clean Aesthetic**: Tampilan baru yang lebih cerah dan segar dengan palet warna neon green dan sky blue, menciptakan suasana yang positif dan energik.
 - **Hero Section Sinematik**: Latar belakang video dengan overlay interaktif dan animasi 3D floating icons.
 - **Glassmorphism Design**: Antarmuka modern dengan efek kaca premium, memberikan kesan futuristik dan bersih.
 - **Micro-Interactions**: Animasi halus (reveal, stagger, hover effects) yang merespons setiap tindakan pengguna.
 
-### 2. ♻️ **Bank Sampah Digital (Smart Waste Bank)**
+### 2. 🎮 **Eco Catcher Minigame (New!)**
+- **Interactive Gameplay**: Game edukasi seru berbasis HTML5 Canvas di mana pengguna menangkap sampah daur ulang.
+- **Skill & Reflex**: Hindari bom dan polusi sambil mengumpulkan poin sebanyak mungkin.
+- **Visual Effects**: Dilengkapi dengan efek partikel ledakan dan animasi yang memuaskan.
+
+### 3. ♻️ **Bank Sampah Digital (Smart Waste Bank)**
 - **Real-time Tracking**: Pantau jumlah sampah yang disetor dan dampaknya terhadap lingkungan.
 - **Dynamic Filtering**: Filter jenis sampah (Plastik, Kertas, Logam, dll) dengan animasi transisi yang mulus.
 - **Points System**: Konversi sampah menjadi poin yang dapat ditukarkan (gamifikasi ekonomi sirkular).
 
-### 3. 🌍 **Peta Aksi & Geolocation**
+### 4. 🌍 **Peta Aksi & Geolocation**
 - **Interactive Map**: Integrasi Leaflet.js untuk menampilkan event lingkungan dan lokasi bank sampah terdekat.
 - **User Tracking**: Deteksi lokasi pengguna secara real-time untuk rekomendasi aksi lokal.
 - **Event Popups**: Detail event dengan tombol "Join" instan.
 
-### 4. 📊 **Kalkulator Jejak Karbon**
+### 5. 📊 **Kalkulator Jejak Karbon**
 - **Personalized Assessment**: Hitung emisi karbon harian berdasarkan transportasi, energi, dan konsumsi.
 - **Visual Data**: Grafik progres bar animasi untuk memvisualisasikan dampak pengguna.
 - **Actionable Insights**: Rekomendasi spesifik berdasarkan hasil perhitungan (Rendah/Sedang/Tinggi).
 
-### 5. 💬 **Komunitas & Smart Chatbot**
+### 6. 💬 **Komunitas & Smart Chatbot**
 - **AI-Powered Chatbot**: Asisten virtual yang menjawab pertanyaan seputar lingkungan secara instan.
 - **Discussion Forum**: Ruang diskusi real-time antar pengguna dengan antarmuka chat modern.
 - **Leaderboard**: Peringkat pengguna teratas (PURE-Warriors) untuk memacu kompetisi sehat.
@@ -156,7 +162,6 @@ Copyright © 2025 **Tim CASPER A - SMK Pertiwi Kuningan**. All Rights Reserved.
 [![Website](https://img.shields.io/badge/Website-SMK_Pertiwi-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://smkpertiwikng.sch.id/)
 
 </div>
-
 
 
 
