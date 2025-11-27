@@ -15,7 +15,7 @@ Jika Anda menemukan kerentanan keamanan dalam proyek ini, kami sangat menghargai
 ### Cara Melaporkan
 
 1. **Jangan** membuat issue publik untuk kerentanan keamanan
-2. Kirim email ke: **[ario.zulkaisi@smkpertiwikng.sch.id](mailto:ario.zulkaisi@smkpertiwikng.sch.id)**
+2. Kirim email ke: **[aryont52@gmail.com](mailto:aryont52@gmail.com)**
 3. Sertakan informasi berikut:
    - Deskripsi detail tentang kerentanan
    - Langkah-langkah untuk mereproduksi masalah
@@ -54,3 +54,4 @@ Untuk pertanyaan keamanan lainnya, hubungi:
 ---
 
 Terima kasih telah membantu menjaga PURE tetap aman! 🔒🌱
+
