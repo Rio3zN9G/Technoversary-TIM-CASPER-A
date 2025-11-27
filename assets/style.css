@@ -1449,6 +1449,18 @@ section {
     padding: 2rem;
     max-height: 600px;
     overflow-y: auto;
+    border: none !important;
+    /* Remove border specifically for forum */
+    box-shadow: var(--card-shadow);
+    /* Keep shadow for depth */
+    outline: none !important;
+    /* Remove blue outline on click */
+}
+
+.forum:focus,
+.forum:active {
+    outline: none !important;
+    border: none !important;
 }
 
 .forum h3 {
@@ -1573,6 +1585,9 @@ section {
     /* Uses .glass-panel styles via HTML class */
     padding: 2rem;
     height: fit-content;
+    border: none !important;
+    /* Remove border */
+    box-shadow: var(--card-shadow);
 }
 
 .community-sidebar h3 {
