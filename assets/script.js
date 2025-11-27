@@ -1522,3 +1522,213 @@ function initializeMainWebsite() {
     console.log('%c✨ Website loaded successfully!', 'color: #2962FF; font-size: 14px;');
     console.log('%cMade with 💚 for a better planet', 'color: #00C853; font-size: 12px;');
 }
+
+/* --- MINIGAME LOGIC --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('gameCanvas');
+    if (!canvas) return; // Guard clause if canvas doesn't exist
+
+    const ctx = canvas.getContext('2d');
+    const startBtn = document.getElementById('start-game-btn');
+    const restartBtn = document.getElementById('restart-game-btn');
+    const overlay = document.getElementById('game-start-overlay');
+    const gameOverModal = document.getElementById('game-over-modal');
+    const scoreEl = document.getElementById('game-score');
+    const finalScoreEl = document.getElementById('final-score');
+    const livesContainer = document.getElementById('game-lives');
+
+    let gameActive = false;
+    let score = 0;
+    let lives = 3;
+    let animationId;
+    let width, height;
+
+    // Game Objects
+    const basket = {
+        x: 0,
+        y: 0,
+        width: 80,
+        height: 60,
+        color: '#FFD600'
+    };
+
+    let items = [];
+    let particles = [];
+    let spawnRate = 60; // Frames
+    let frameCount = 0;
+    let speedMultiplier = 1;
+
+    // Assets (Emojis)
+    const itemTypes = [
+        { type: 'good', emoji: '♻️', score: 10 },
+        { type: 'good', emoji: '🥤', score: 5 },
+        { type: 'good', emoji: '📰', score: 5 },
+        { type: 'good', emoji: '📦', score: 5 },
+        { type: 'bad', emoji: '💣', score: -10 },
+        { type: 'bad', emoji: '💨', score: -5 }
+    ];
+
+    function resizeCanvas() {
+        const container = document.querySelector('.game-container');
+        if (container) {
+            width = container.clientWidth;
+            height = container.clientHeight;
+            canvas.width = width;
+            canvas.height = height;
+            basket.y = height - 80;
+            // Ensure basket stays within bounds after resize
+            if (basket.x > width - basket.width) basket.x = width - basket.width;
+        }
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    // Call resize initially, but also when game starts to be safe
+    setTimeout(resizeCanvas, 1000); // Try after a second just in case
+
+    // Input Handling
+    function moveBasket(clientX) {
+        if (!gameActive) return;
+        const rect = canvas.getBoundingClientRect();
+        basket.x = clientX - rect.left - basket.width / 2;
+
+        // Clamp
+        if (basket.x < 0) basket.x = 0;
+        if (basket.x > width - basket.width) basket.x = width - basket.width;
+    }
+
+    canvas.addEventListener('mousemove', (e) => moveBasket(e.clientX));
+
+    canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault(); // Prevent scrolling
+        moveBasket(e.touches[0].clientX);
+    }, { passive: false });
+
+    function startGame() {
+        resizeCanvas(); // Ensure size is correct
+        gameActive = true;
+        score = 0;
+        lives = 3;
+        items = [];
+        particles = [];
+        speedMultiplier = 1;
+        frameCount = 0;
+        scoreEl.innerText = score;
+        updateLives();
+        overlay.classList.add('hidden');
+        gameOverModal.classList.remove('active');
+        gameLoop();
+    }
+
+    function updateLives() {
+        livesContainer.innerHTML = '';
+        for (let i = 0; i < lives; i++) {
+            livesContainer.innerHTML += '<i class="fas fa-heart"></i>';
+        }
+    }
+
+    function createExplosion(x, y, color) {
+        for (let i = 0; i < 10; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 10,
+                vy: (Math.random() - 0.5) * 10,
+                life: 1,
+                color: color
+            });
+        }
+    }
+
+    function gameLoop() {
+        if (!gameActive) return;
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw Basket
+        ctx.font = '50px Arial';
+        ctx.fillText('🗑️', basket.x + 10, basket.y + 50);
+
+        // Spawn Items
+        frameCount++;
+        if (frameCount % Math.floor(spawnRate / speedMultiplier) === 0) {
+            const randomItem = itemTypes[Math.floor(Math.random() * itemTypes.length)];
+            items.push({
+                x: Math.random() * (width - 40),
+                y: -50,
+                ...randomItem,
+                speed: (Math.random() * 2 + 2) * speedMultiplier
+            });
+        }
+
+        // Increase difficulty
+        if (frameCount % 500 === 0) {
+            speedMultiplier += 0.1;
+        }
+
+        // Update & Draw Items
+        for (let i = items.length - 1; i >= 0; i--) {
+            let item = items[i];
+            item.y += item.speed;
+
+            ctx.font = '30px Arial';
+            ctx.fillText(item.emoji, item.x, item.y);
+
+            // Collision Detection
+            if (
+                item.x < basket.x + basket.width &&
+                item.x + 30 > basket.x &&
+                item.y < basket.y + basket.height &&
+                item.y + 30 > basket.y
+            ) {
+                // Caught
+                if (item.type === 'good') {
+                    score += item.score;
+                    createExplosion(item.x, item.y, '#00E676');
+                } else {
+                    score += item.score;
+                    lives--;
+                    updateLives();
+                    createExplosion(item.x, item.y, '#FF5252');
+                    if (lives <= 0) {
+                        endGame();
+                        return;
+                    }
+                }
+                scoreEl.innerText = score;
+                items.splice(i, 1);
+            } else if (item.y > height) {
+                items.splice(i, 1);
+            }
+        }
+
+        // Update & Draw Particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+            let p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life -= 0.05;
+
+            ctx.globalAlpha = p.life;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+
+            if (p.life <= 0) particles.splice(i, 1);
+        }
+
+        animationId = requestAnimationFrame(gameLoop);
+    }
+
+    function endGame() {
+        gameActive = false;
+        cancelAnimationFrame(animationId);
+        finalScoreEl.innerText = score;
+        gameOverModal.classList.add('active');
+    }
+
+    if (startBtn) startBtn.addEventListener('click', startGame);
+    if (restartBtn) restartBtn.addEventListener('click', startGame);
+});
