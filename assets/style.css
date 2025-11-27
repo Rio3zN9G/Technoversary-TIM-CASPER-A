@@ -267,6 +267,13 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 120px;
+        /* More space for bottom nav on mobile */
+    }
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -654,6 +661,8 @@ header {
     top: 0;
     left: 0;
     pointer-events: none;
+    z-index: 0;
+    /* Ensure behind content */
 }
 
 .floating-element {
@@ -887,18 +896,26 @@ section {
 
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
-    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 auto 3rem auto;
+    font-size: clamp(2rem, 6vw, 3rem);
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(45deg, var(--primary-green), var(--primary-blue));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    display: table;
+    /* Ensures width fits content for underline */
     padding: 0 1rem;
+    line-height: 1.3;
+    z-index: 100;
+    /* Ensure it's above everything */
+    max-width: 100%;
+    word-wrap: break-word;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    /* Stronger outline */
+    filter: drop-shadow(0 0 5px rgba(0, 230, 118, 0.8)) drop-shadow(0 0 15px rgba(41, 98, 255, 0.6));
+    /* Bright Neon Glow */
 }
 
 .section-title::after {
@@ -918,8 +935,11 @@ section {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: var(--card-shadow);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    /* Enhanced border */
+    box-shadow: var(--card-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    /* Double border effect */
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     overflow: hidden;
@@ -966,8 +986,10 @@ section {
     -webkit-backdrop-filter: blur(20px);
     border-radius: 30px;
     overflow: hidden;
+    overflow: hidden;
     box-shadow: var(--card-shadow);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    /* Enhanced border */
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     position: relative;
@@ -1427,6 +1449,25 @@ section {
     padding: 2rem;
     max-height: 600px;
     overflow-y: auto;
+}
+
+.forum h3 {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    margin: -2rem -2rem 1.5rem -2rem !important;
+    /* Pull to edges to cover padding */
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(0, 200, 83, 0.1);
+    -webkit-text-stroke: 0;
+    /* Remove outline */
+    text-shadow: none;
+    width: calc(100% + 4rem);
+    /* Compensate for negative margin */
+    display: block;
 }
 
 .chat-container {
@@ -2634,6 +2675,20 @@ footer {
         width: 100%;
         justify-content: center;
     }
+
+    /* Hide floating elements on mobile to prevent distraction/overlap */
+    .floating-elements {
+        display: none;
+    }
+
+    /* Adjust header padding */
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2705,6 +2760,35 @@ footer {
 
     .nav-item span {
         font-size: 0.6rem;
+    }
+
+    /* Ensure text isn't covered by header */
+    .hero {
+        padding-top: 80px;
+        min-height: auto;
+        /* Allow content to dictate height if needed */
+        padding-bottom: 4rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        /* Smaller font for mobile */
+    }
+
+    .typing-text {
+        font-size: 1rem;
+        min-height: 50px;
+    }
+
+    /* Better spacing for sections */
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    /* Ensure modal fits */
+    .education-modal-content {
+        height: 100%;
+        border-radius: 0;
     }
 }
 
