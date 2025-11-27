@@ -1366,6 +1366,159 @@ function initializeMainWebsite() {
 
 
     setTimeout(() => {
-        notyf.success('Selamat datang di EcoSphere! Mari bersama-sama selamatkan bumi.');
+        notyf.success('Selamat datang di PURE! Mari bersama-sama selamatkan bumi.');
     }, 1000);
+
+    // ========== PREMIUM FEATURES ========== //
+
+    // Scroll Progress Bar
+    const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+
+    function updateScrollProgress() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+
+        document.documentElement.style.setProperty('--scroll-progress', `${scrollPercent}%`);
+    }
+
+    window.addEventListener('scroll', throttle(updateScrollProgress, 50));
+
+    // Back to Top Button
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    function toggleBackToTop() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    }
+
+    window.addEventListener('scroll', throttle(toggleBackToTop, 100));
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Lazy Loading Images
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(img => img.classList.add('loaded'));
+    }
+
+    // Enhanced Card Animations with Stagger
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Auto-scroll chat to bottom when new message is added
+    const chatContainerElement = document.getElementById('chat-container');
+    if (chatContainerElement) {
+        chatContainerElement.scrollTop = chatContainerElement.scrollHeight;
+    }
+
+    // Add ripple effect to buttons
+    function createRipple(event) {
+        const button = event.currentTarget;
+        const ripple = document.createElement('span');
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        ripple.style.width = ripple.style.height = `${diameter}px`;
+        ripple.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+        ripple.style.top = `${event.clientY - button.offsetTop - radius}px`;
+        ripple.classList.add('ripple');
+
+        const existingRipple = button.querySelector('.ripple');
+        if (existingRipple) {
+            existingRipple.remove();
+        }
+
+        button.appendChild(ripple);
+    }
+
+    const buttons = document.querySelectorAll('.btn, button');
+    buttons.forEach(button => {
+        button.addEventListener('click', createRipple);
+    });
+
+    // Performance: Debounce resize events
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Recalculate any layout-dependent features
+            updateScrollProgress();
+        }, 250);
+    });
+
+    // Accessibility: Keyboard navigation for cards
+    cards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                card.click();
+            }
+        });
+    });
+
+    // Performance Monitor (Development only)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        console.log('🚀 Performance Metrics:');
+        console.log(`⏱️ Page Load: ${(perfData.loadEventEnd - perfData.fetchStart).toFixed(2)}ms`);
+        console.log(`🎨 DOM Content Loaded: ${(perfData.domContentLoadedEventEnd - perfData.fetchStart).toFixed(2)}ms`);
+    }
+
+    // Service Worker Registration (for PWA capability)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            // Uncomment when you have a service worker file
+            // navigator.serviceWorker.register('/sw.js')
+            //     .then(reg => console.log('✅ Service Worker registered'))
+            //     .catch(err => console.log('❌ Service Worker registration failed'));
+        });
+    }
+
+    // Add smooth reveal for sections on scroll
+    const revealSections = document.querySelectorAll('section');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealSections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        revealObserver.observe(section);
+    });
+
+    console.log('%c🌿 PURE - Planet Unity Resources Environment', 'color: #00E676; font-size: 20px; font-weight: bold;');
+    console.log('%c✨ Website loaded successfully!', 'color: #2962FF; font-size: 14px;');
+    console.log('%cMade with 💚 for a better planet', 'color: #00C853; font-size: 12px;');
 }
