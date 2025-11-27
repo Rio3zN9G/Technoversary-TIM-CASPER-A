@@ -378,14 +378,68 @@ function initializeMainWebsite() {
     ];
 
     const wasteItemsData = [
-        { icon: "🥤", name: "Botol Plastik", price: "Rp 2.000/kg" },
-        { icon: "🛍️", name: "Kantong Plastik", price: "Rp 1.500/kg" },
-        { icon: "📦", name: "Kardus", price: "Rp 3.000/kg" },
-        { icon: "📰", name: "Koran", price: "Rp 2.500/kg" },
-        { icon: "🍶", name: "Botol Kaca", price: "Rp 1.800/kg" },
-        { icon: "🔩", name: "Kaleng", price: "Rp 2.200/kg" }
+        { icon: "🥤", name: "Botol Plastik", price: "Rp 2.000/kg", category: "Plastik" },
+        { icon: "🛍️", name: "Kantong Plastik", price: "Rp 1.500/kg", category: "Plastik" },
+        { icon: "📦", name: "Kardus", price: "Rp 3.000/kg", category: "Kertas" },
+        { icon: "📰", name: "Koran", price: "Rp 2.500/kg", category: "Kertas" },
+        { icon: "🍎", name: "Sisa Makanan", price: "Rp 500/kg", category: "Organik" },
+        { icon: "🍂", name: "Daun Kering", price: "Rp 300/kg", category: "Organik" },
+        { icon: "🔩", name: "Kaleng", price: "Rp 2.200/kg", category: "Logam" },
+        { icon: "🔧", name: "Besi Tua", price: "Rp 4.000/kg", category: "Logam" },
+        { icon: "🍶", name: "Botol Kaca", price: "Rp 1.800/kg", category: "Kaca" },
+        { icon: "🪞", name: "Pecahan Kaca", price: "Rp 1.000/kg", category: "Kaca" },
+        { icon: "💻", name: "Laptop Bekas", price: "Rp 50.000/unit", category: "Elektronik" },
+        { icon: "📱", name: "HP Bekas", price: "Rp 30.000/unit", category: "Elektronik" }
     ];
 
+    const wasteItemsContainer = document.querySelector('.waste-items');
+    const categoryButtons = document.querySelectorAll('.category');
+
+    function renderWasteItems(category) {
+        wasteItemsContainer.innerHTML = ''; // Clear existing items
+
+        const filteredItems = wasteItemsData.filter(item => item.category === category);
+
+        if (filteredItems.length === 0) {
+            wasteItemsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--dark-gray);">Belum ada data untuk kategori ini.</p>';
+            return;
+        }
+
+        filteredItems.forEach((item, index) => {
+            const wasteItem = document.createElement('div');
+            wasteItem.className = 'wasteItem reveal-block'; // Changed class name slightly to avoid conflict if any
+            wasteItem.classList.add('waste-item'); // Add original class back
+            wasteItem.style.animationDelay = `${index * 100}ms`; // Stagger animation
+
+            wasteItem.innerHTML = `
+                <div class="waste-icon">${item.icon}</div>
+                <h4>${item.name}</h4>
+                <p>${item.price}</p>
+            `;
+            wasteItemsContainer.appendChild(wasteItem);
+
+            // Trigger animation
+            setTimeout(() => {
+                wasteItem.classList.add('active');
+            }, 50);
+        });
+    }
+
+    // Initial render
+    renderWasteItems('Plastik');
+
+    // Event listeners for category buttons
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Render items for selected category
+            renderWasteItems(button.innerText);
+        });
+    });
 
     const chatMessages = [
         {
@@ -477,21 +531,6 @@ function initializeMainWebsite() {
 
     document.querySelectorAll('.reveal-block').forEach(el => {
         observer.observe(el);
-    });
-
-
-    const wasteItemsContainer = document.querySelector('.waste-items');
-    wasteItemsData.forEach((item, index) => {
-        const wasteItem = document.createElement('div');
-        wasteItem.className = 'waste-item';
-        wasteItem.setAttribute('data-aos', 'fade-up');
-        wasteItem.setAttribute('data-aos-delay', index * 100);
-        wasteItem.innerHTML = `
-                    <div class="waste-icon">${item.icon}</div>
-                    <h4>${item.name}</h4>
-                    <p>${item.price}</p>
-                `;
-        wasteItemsContainer.appendChild(wasteItem);
     });
 
     // Parallax Effect for Floating Elements
