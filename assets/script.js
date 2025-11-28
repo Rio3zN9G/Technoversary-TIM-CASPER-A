@@ -1198,7 +1198,7 @@ function initializeMainWebsite() {
     });
 
 
-    const GEMINI_API_KEY = "AIzaSyDD2Sqav6H36-OpphYYuuYKdIN1XDLxDI8";
+    const GEMINI_API_KEY = "AIzaSyB4DEO_w9984PxtRa3Bt-0qhU4Uo0ybf8M";
     const AI_PERSONA = {
         name: "Eco-Friend",
         avatar: "🌿"
