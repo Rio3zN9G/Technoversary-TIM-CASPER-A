@@ -1199,21 +1199,30 @@ function initializeMainWebsite() {
 
 
     // Smart Chat System
-    const chatBotKnowledge = {
-        "halo": ["Halo juga! Semangat menjaga bumi!", "Hai! Ada yang bisa dibantu terkait lingkungan?", "Halo! Senang bertemu sesama Eco-Warrior."],
-        "hai": ["Halo! Mari kita buat bumi lebih hijau.", "Hai! Apa kabar hari ini?", "Halo! Siap beraksi untuk lingkungan?"],
-        "sampah": ["Jangan lupa pilah sampahmu ya! Organik, Anorganik, dan B3.", "Sampah plastik bisa didaur ulang menjadi kerajinan lho.", "Sudah setor sampah ke Bank Sampah hari ini?", "Ingat 3R: Reduce, Reuse, Recycle!"],
-        "plastik": ["Plastik butuh ratusan tahun untuk terurai. Kurangi penggunaannya yuk!", "Bawa botol minum sendiri bisa mengurangi sampah plastik lho.", "Daur ulang botol plastikmu di Bank Sampah PURE."],
-        "poin": ["Kumpulkan poin dengan setor sampah dan selesaikan modul edukasi!", "Poin bisa ditukar dengan reward menarik lho.", "Cek leaderboard untuk lihat peringkat poinmu.", "Setiap 1kg sampah plastik bernilai 50 poin!"],
-        "daur ulang": ["Daur ulang adalah langkah kecil berdampak besar.", "Botol plastik bekas bisa jadi pot tanaman yang cantik.", "Kertas bekas bisa didaur ulang jadi kertas baru lagi.", "Pisahkan sampahmu sebelum didaur ulang ya."],
-        "banjir": ["Banjir sering disebabkan oleh sampah yang menyumbat saluran air.", "Mari jaga kebersihan sungai agar tidak banjir.", "Tanam pohon untuk membantu penyerapan air hujan.", "Jangan buang sampah sembarangan ya!"],
-        "pohon": ["Satu pohon bisa menyuplai oksigen untuk 2 orang seumur hidup.", "Yuk ikut event penanaman pohon minggu depan!", "Pohon menyejukkan udara dan mengurangi polusi.", "Menanam pohon = menanam kehidupan."],
-        "energi": ["Matikan lampu jika tidak digunakan untuk hemat energi.", "Gunakan energi terbarukan seperti panel surya.", "Hemat energi = hemat biaya dan selamatkan bumi."],
-        "kompos": ["Sampah organik bisa dijadikan pupuk kompos lho.", "Kompos sangat baik untuk menyuburkan tanaman.", "Membuat kompos itu mudah, cukup siapkan wadah dan sampah organik."],
-        "default": ["Wah, menarik sekali! Ceritakan lebih lanjut.", "Setuju banget!", "Terima kasih infonya, sangat bermanfaat.", "Semangat terus untuk menjaga lingkungan!", "Keren! Lanjutkan aksi baikmu.", "Mantap! Inspiratif sekali."]
+    // GEMINI AI INTEGRATION
+    const GEMINI_API_KEY = "AIzaSyDD2Sqav6H36-OpphYYuuYKdIN1XDLxDI8"; // USER MUST REPLACE THIS
+    const AI_PERSONA = {
+        name: "Eco-Friend",
+        avatar: "🌿"
     };
 
-    document.getElementById('send-message').addEventListener('click', function () {
+    const SYSTEM_PROMPT = `
+    Kamu adalah Eco-Friend, asisten AI yang ramah dan bijak untuk website PURE (Planet Unity Resources Environment).
+    Tugasmu adalah menjawab pertanyaan pengguna seputar lingkungan, edukasi, bank sampah digital, dan fitur-fitur website PURE.
+    
+    Informasi Website PURE:
+    - Fitur: Edukasi (modul daur ulang, energi, dll), Aksi (kalkulator jejak karbon, peta event), Bank Sampah (tukar sampah jadi poin), Komunitas, dan Minigame (Eco Catcher).
+    - Tujuan: Mengajak orang peduli lingkungan.
+    
+    Gaya Bicara:
+    - Panggilan: Eco-Friend.
+    - Bahasa: Indonesia yang santai tapi edukatif.
+    - PENTING: Usahakan setiap kalimat atau paragrafmu memiliki akhiran bunyi yang sama (rima) agar terdengar puitis dan asik.
+    - Gunakan konjungsi (kata hubung) yang jelas.
+    - Fokus: Lingkungan, edukasi, bank sampah.
+    `;
+
+    document.getElementById('send-message').addEventListener('click', async function () {
         const chatInput = document.getElementById('chat-input');
         const message = chatInput.value.trim();
 
@@ -1235,43 +1244,66 @@ function initializeMainWebsite() {
             chatInput.value = '';
             chatContainer.scrollTop = chatContainer.scrollHeight;
 
-            // Analyze Message & Generate Response
-            const lowerMsg = message.toLowerCase();
-            let replyText = "";
-            let matched = false;
+            // Show Typing Indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'chat-message';
+            typingIndicator.id = 'typing-indicator';
+            typingIndicator.innerHTML = `
+                <div class="chat-avatar">${AI_PERSONA.avatar}</div>
+                <div class="chat-bubble">
+                    <div class="chat-user">${AI_PERSONA.name}</div>
+                    <div class="chat-text">Sedang mengetik...</div>
+                </div>
+            `;
+            chatContainer.appendChild(typingIndicator);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
 
-            // Check for keywords
-            for (const [key, answers] of Object.entries(chatBotKnowledge)) {
-                if (key !== "default" && lowerMsg.includes(key)) {
-                    replyText = answers[Math.floor(Math.random() * answers.length)];
-                    matched = true;
-                    break;
+            try {
+                if (GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE") {
+                    throw new Error("API Key belum disetting. Silakan masukkan API Key Gemini di assets/script.js");
                 }
-            }
 
-            // Fallback if no keyword matched
-            if (!matched) {
-                const defaults = chatBotKnowledge["default"];
-                replyText = defaults[Math.floor(Math.random() * defaults.length)];
-            }
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: SYSTEM_PROMPT + "\n\nUser: " + message }]
+                        }]
+                    })
+                });
 
-            // Simulate Typing Delay
-            const typingDelay = Math.random() * 1000 + 1000; // 1-2 seconds
+                const data = await response.json();
 
-            setTimeout(() => {
-                const randomUser = onlineUsers[Math.floor(Math.random() * onlineUsers.length)];
+                // Remove typing indicator
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
 
+                let replyText = "Maaf, Eco-Friend sedang istirahat sebentar (Error API).";
+                if (data.candidates && data.candidates[0].content) {
+                    replyText = data.candidates[0].content.parts[0].text;
+                } else if (data.error) {
+                    console.error("Gemini Error:", data.error);
+                    replyText = "Maaf, ada masalah koneksi dengan Eco-Friend: " + data.error.message;
+                }
+
+                // Display AI Response
                 const replyMessage = document.createElement('div');
                 replyMessage.className = 'chat-message';
-                replyMessage.style.opacity = '0'; // Start hidden for animation
+                replyMessage.style.opacity = '0';
                 replyMessage.innerHTML = `
-                            <div class="chat-avatar">${randomUser.avatar}</div>
+                            <div class="chat-avatar">${AI_PERSONA.avatar}</div>
                             <div class="chat-bubble">
-                                <div class="chat-user">${randomUser.name}</div>
-                                <div class="chat-text">${replyText}</div>
+                                <div class="chat-user">${AI_PERSONA.name}</div>
+                                <div class="chat-text"></div>
                                 <div class="chat-time">Baru saja</div>
                             </div>
                         `;
+
+                // Insert text safely
+                replyMessage.querySelector('.chat-text').innerText = replyText;
 
                 chatContainer.appendChild(replyMessage);
 
@@ -1286,11 +1318,26 @@ function initializeMainWebsite() {
 
                 chatContainer.scrollTop = chatContainer.scrollHeight;
 
-                // Play subtle pop sound if available (optional)
-                // const popSound = new Audio('assets/media/pop.mp3');
-                // popSound.play().catch(() => {});
+            } catch (error) {
+                console.error(error);
+                // Remove typing indicator
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
 
-            }, typingDelay);
+                notyf.error(error.message);
+                // Fallback message
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'chat-message';
+                errorMessage.innerHTML = `
+                            <div class="chat-avatar">⚠️</div>
+                            <div class="chat-bubble">
+                                <div class="chat-user">System</div>
+                                <div class="chat-text">${error.message}</div>
+                                <div class="chat-time">System</div>
+                            </div>
+                        `;
+                chatContainer.appendChild(errorMessage);
+            }
         }
     });
 
