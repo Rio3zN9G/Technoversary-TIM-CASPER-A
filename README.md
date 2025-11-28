@@ -67,8 +67,8 @@ PURE menghadirkan serangkaian fitur canggih yang terintegrasi dalam satu platfor
 - **Visual Data**: Grafik progres bar animasi untuk memvisualisasikan dampak pengguna.
 - **Actionable Insights**: Rekomendasi spesifik berdasarkan hasil perhitungan (Rendah/Sedang/Tinggi).
 
-### 6. 💬 **Komunitas & Smart Chatbot**
-- **AI-Powered Chatbot**: Asisten virtual yang menjawab pertanyaan seputar lingkungan secara instan.
+### 6. 💬 **Komunitas & Smart Chatbot (Powered by Gemini AI)**
+- **Eco-Friend AI**: Asisten virtual cerdas berbasis **Google Gemini 1.5 Flash** yang siap menjawab pertanyaan seputar lingkungan dengan gaya bahasa puitis dan ramah.
 - **Discussion Forum**: Ruang diskusi real-time antar pengguna dengan antarmuka chat modern.
 - **Leaderboard**: Peringkat pengguna teratas (PURE-Warriors) untuk memacu kompetisi sehat.
 
@@ -83,17 +83,16 @@ Kami menggunakan teknologi web terkini untuk memastikan performa, aksesibilitas,
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-### **Libraries & Frameworks**
 | Kategori | Teknologi | Kegunaan |
 | :--- | :--- | :--- |
+| **Animation** | ![AOS](https://img.shields.io/badge/AOS-20C997?style=flat-square) | Animasi elemen saat scroll (Animate On Scroll). |
 | **Animation** | ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white) | Animasi kompleks, scroll triggers, dan timeline. |
 | **Animation** | ![Anime.js](https://img.shields.io/badge/Anime.js-FA5252?style=flat-square) | Animasi partikel dan efek mikro. |
 | **Maps** | ![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white) | Peta interaktif dan visualisasi geospasial. |
 | **UI Components** | ![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat-square&logo=fontawesome&logoColor=white) | Ikon vektor skalabel dan modern. |
+| **Drag & Drop** | ![Dragula](https://img.shields.io/badge/Dragula-4A90E2?style=flat-square&logo=npm&logoColor=white) | Fungsionalitas drag and drop yang mudah. |
 | **Notifications** | ![Notyf](https://img.shields.io/badge/Notyf-663399?style=flat-square) | Notifikasi toast yang elegan dan non-intrusif. |
 | **Particles** | ![Particles.js](https://img.shields.io/badge/Particles.js-000000?style=flat-square) | Efek latar belakang interaktif. |
-
----
 
 ## 📸 Galeri Tampilan (Screenshots)
 
@@ -137,6 +136,13 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini di mesin lokal Anda:
 3.  **Jalankan Project**
     Cukup buka file `index.html` di browser modern pilihan Anda (Chrome, Firefox, Edge, Safari).
     > Disarankan menggunakan ekstensi **Live Server** di VS Code untuk pengalaman pengembangan terbaik.
+
+4.  **Setup API Key Gemini (Wajib untuk Chatbot)**
+    Agar fitur chat **Eco-Friend** berfungsi, Anda perlu memasukkan API Key Gemini.
+    - Dapatkan API Key di [Google AI Studio](https://aistudio.google.com/app/apikey).
+    - Buka file `assets/script.js`.
+    - Cari variabel `GEMINI_API_KEY` dan masukkan key Anda.
+    - Panduan lengkap: [Baca GUIDE_GEMINI_API.md](GUIDE_GEMINI_API.md).
 
 ---
 
