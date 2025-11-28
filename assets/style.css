@@ -2864,6 +2864,10 @@ footer {
         justify-content: center;
     }
 
+    .education-modal .modal-footer .btn {
+        width: auto;
+    }
+
     /* Hide floating elements on mobile to prevent distraction/overlap */
     .floating-elements {
         display: none;
@@ -2900,6 +2904,10 @@ footer {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .education-modal .modal-footer .btn {
+        width: auto;
     }
 
     .calculator,
