@@ -1198,9 +1198,7 @@ function initializeMainWebsite() {
     });
 
 
-    // Smart Chat System
-    // GEMINI AI INTEGRATION
-    const GEMINI_API_KEY = "AIzaSyDD2Sqav6H36-OpphYYuuYKdIN1XDLxDI8"; // USER MUST REPLACE THIS
+    const GEMINI_API_KEY = "AIzaSyDD2Sqav6H36-OpphYYuuYKdIN1XDLxDI8"; 
     const AI_PERSONA = {
         name: "Eco-Friend",
         avatar: "🌿"
