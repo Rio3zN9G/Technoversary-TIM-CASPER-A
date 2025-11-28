@@ -1198,7 +1198,7 @@ function initializeMainWebsite() {
     });
 
 
-    const GEMINI_API_KEY = "AIzaSyDD2Sqav6H36-OpphYYuuYKdIN1XDLxDI8"; 
+    const GEMINI_API_KEY = "AIzaSyDD2Sqav6H36-OpphYYuuYKdIN1XDLxDI8";
     const AI_PERSONA = {
         name: "Eco-Friend",
         avatar: "🌿"
@@ -1777,4 +1777,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (startBtn) startBtn.addEventListener('click', startGame);
     if (restartBtn) restartBtn.addEventListener('click', startGame);
+});
+
+/* --- Interactive Card Stack Slider Logic --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider-container');
+    if (!slider) return;
+
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const items = document.querySelectorAll('.slider-item');
+            slider.appendChild(items[0]);
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const items = document.querySelectorAll('.slider-item');
+            slider.prepend(items[items.length - 1]);
+        });
+    }
 });
